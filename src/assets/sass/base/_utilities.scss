@@ -1,0 +1,45 @@
+/*--------------------------------------------*/
+/*              UTILITIES                     */
+/*--------------------------------------------*/
+.u-no-margin{
+    margin: 0;
+}
+.mt-0{
+  margin-top: 0;
+}
+.hidden{
+    visibility: hidden;
+  }
+
+.hidden-ba::after,
+.hidden-ba::before{
+  visibility: hidden;
+}
+
+.medium{
+  font-weight:600;
+}
+
+.flex-wrapper{
+  position: relative;
+  flex: 1;
+}
+.flex-content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+.u-hidden-scroll{
+  overflow: hidden;
+  padding-right: 1.6rem;
+
+    &:hover{
+      overflow-y: scroll;
+      padding-right: 1rem;
+    }
+}
+

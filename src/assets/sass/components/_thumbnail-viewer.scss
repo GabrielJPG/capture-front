@@ -1,0 +1,76 @@
+/*--------------------------------------------*/
+/*            THUMBNAIL VIEWER                */
+/*--------------------------------------------*/
+.c-thumbnail-viewer{
+    height: auto;
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+    background: whitesmoke;
+
+    &__heading{
+        font-size: 1.4rem;
+        padding: 1.3rem 1rem;
+        text-align: center;
+        color: #8d8d8d;
+    }
+    &__content{
+        @extend .flex-content;
+        display: flex;
+        align-items: center;
+        flex-direction: column; 
+        padding-top: 0.5rem; 
+    }
+    
+}
+
+
+/*--------------------------------------------*/
+/*            THUMBNAIL IMAGE                 */
+/*--------------------------------------------*/
+.thumbnail-container{
+    width: 19rem;
+    height: 25rem;
+    box-shadow: 0px 0px 1px 0px #afafaf;
+    border: 0.2rem solid white;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 2rem;
+
+    & .thumbnail-img{
+        width: 100%;
+        height: 100%;
+    }
+
+    &.highlight{
+        border: 0.5rem solid #75757540;
+        border-radius: 0.4rem;
+    }
+}
+
+
+/*--------------------------------------------*/
+/*          THUMBNAIL IMAGE NOT FOUND         */
+/*--------------------------------------------*/
+.page-not-found{
+    min-height: 25rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: initial;
+
+    &__heading{
+        font-size: 1.2rem;
+        color: $text-color;
+        margin-top: -4rem;
+    }
+    &__action{
+        color: $warning-color;
+        font-size: 1.7rem;
+        font-weight: 800;
+        cursor: pointer;
+    }
+}

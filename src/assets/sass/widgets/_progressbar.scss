@@ -1,0 +1,23 @@
+/*--------------------------------------------*/
+/*           PROGRESSBAR                      */
+/*--------------------------------------------*/
+.progressbar{
+    width: 100%;
+    height: 1.5rem;
+    border-radius: 3rem;
+    overflow: hidden;
+    border: 0.149rem solid #bdbdbd;
+    
+    &__base{
+        height: 100%;
+        background: white;
+        padding: 0.1rem;
+    }
+
+    &__process{
+        width: 70%;
+        height: 100%;
+        background: $light-blue;
+        border-radius: 3rem;
+    }
+}

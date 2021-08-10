@@ -1,0 +1,32 @@
+/*--------------------------------------------*/
+/*              WARNING BOX                   */
+/*--------------------------------------------*/
+.warningbox{
+    width: auto;
+    border-radius: 0 0 2rem;
+    color: $primary-color;
+    padding-right: 2rem;
+    position: absolute;
+    background: $secondary-color;
+    border-color: #e6edf8;
+    font-size: 1.4rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+
+    &__icon{
+        color: $primary-color;
+        margin-right: 1rem;
+        font-size: 1.7rem;
+    }
+
+    &__content{
+        margin-top: 4rem;
+        color: white;
+        font-size: 2rem;
+        margin-right: 1rem;
+    }
+}
+
+
