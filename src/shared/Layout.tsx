@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faFolder, faQrcode, faSearch, faCog } from '@fortawesome/free-solid-svg-icons'
 
 export const Layout: React.FC = (props) => {
     const [currentOption, setCurrentOption] = useState('Home')
@@ -27,11 +29,12 @@ export const MenuSection: React.FC<{ onChangeOption: (option: string) => void, c
     </nav>
 }
 
-export const MenuItem: React.FC<{ icon: string, active: boolean, linkTo: any, name: string, onClick: (value: string) => void }> = (props) => {
+export const MenuItem: React.FC<{ icon: any, active: boolean, linkTo: any, name: string, onClick: (value: string) => void }> = (props) => {
     const { icon, active, linkTo, name, onClick } = props
     return <li className={`c-navbar__item ${active ? 'active' : ''}`}>
         <a href={linkTo} onClick={(e) => onClick(name)}>
-            <i className={`c-navbar__icon ${active ? 'fad' : 'fas'} ${icon}`}>{name}</i>
+            {icon}
+            {/* <i className={`c-navbar__icon ${active ? 'fad' : 'fas'} ${icon}`}></i> */}
         </a>
     </li>
 }
@@ -39,31 +42,32 @@ export const MenuItem: React.FC<{ icon: string, active: boolean, linkTo: any, na
 
 const menu = [
     {
-        icon: 'fa-home',
+        icon: <i className="c-navbar__icon"><FontAwesomeIcon icon={faHome} /></i>,
+        activeIcon: <i className="c-navbar__icon"><FontAwesomeIcon icon={faHome} /></i>,
         active: false,
         linkTo: '/app',
         name: 'Home'
     },
     {
-        icon: 'fa-folder',
+        icon: <i className="c-navbar__icon"><FontAwesomeIcon icon={faFolder} /></i>,
         active: false,
         linkTo: '/app/folder',
         name: 'Folder'
     },
     {
-        icon: 'fa-qrcode',
+        icon: <i className="c-navbar__icon"><FontAwesomeIcon icon={faQrcode} /></i>,
         active: false,
         linkTo: '/app/qrcode',
         name: 'QRCode'
     },
     {
-        icon: 'fa-search',
+        icon: <i className="c-navbar__icon"><FontAwesomeIcon icon={faSearch} /></i>,
         active: false,
         linkTo: '/app/search',
         name: 'Search'
     },
     {
-        icon: 'fa-cog',
+        icon: <i className="c-navbar__icon"><FontAwesomeIcon icon={faCog} /></i>,
         active: false,
         linkTo: '/app/settings',
         name: 'Settings'
