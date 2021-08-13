@@ -1,64 +1,62 @@
 /*--------------------------------------------*/
+
+
 /*              BTN PRIMARY                   */
+
+
 /*--------------------------------------------*/
-.btn-container{
-  display: flex;
-  justify-content: center;
-  height: 5.4rem;
-  margin-top: 2rem;
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    height: 5.4rem;
+    margin-top: 2rem;
 }
 
-.btn{
-  &:link,
-  &:visited{
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 100rem;
-    transition: all .2s;
-    position: absolute;
-  }
-
-  &:hover{
-    transform: translateY(-0.3rem);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  &:active{
-    transform: translateY(-0.1rem);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  &::after{
-    @include pseudo;
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
-  }
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 100rem;
+        transition: all .2s;
+        position: absolute;
+    }
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    &::after {
+        @include pseudo;
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
 }
-
 
 .btn-primary {
     background-color: $primary-color;
     color: rgb(255, 255, 255);
     font-weight: 400;
     font-size: 2rem;
-
-    &::after{
-      background-color: $primary-color;
+    &::after {
+        background-color: $primary-color;
     }
-
-    &:hover::after{
-      transform: scaleX(1.4) scaleY(1.6);
-      opacity: 0;
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
     }
-
 }
 
 .btn-animated {
@@ -68,115 +66,122 @@
 
 
 /*--------------------------------------------*/
+
+
 /*              BTN FORM                      */
-/*--------------------------------------------*/
-.btn-form{
-  margin-top: 5rem;
-  position: absolute;
-  bottom: 0;
-  z-index: 5;
-}
-
-.btn-index{
-  font-size: 2rem;
-  font-weight: 600;
-  &__cancel{
-    background: white;
-    color: $primary-color;
-    border: 0.1rem solid $primary-color;
-    padding: 1.5rem 2rem;
-    padding-right: 3rem;
-    border-radius: 3rem 0 0 3rem;
-    position: relative;
-    left: 3rem;
-    transition: all .3s;
-
-    &:hover{
-      box-shadow: inset 0px 0px 0px 1px #0f44a0;
-    }
-  }
-
-  &__indexed{
-    background: $primary-color;
-    color: white;
-    padding: 1.5rem 5rem;
-    border-radius: 3rem;
-    border: 0.1rem solid $primary-color;
-    position: relative;
-    z-index: 1;
-    transition: all .3s;
-
-    &:hover{
-      background: #0d4ab4;
-      box-shadow: 0px 1px 3px 0px #757575;
-      padding-left: 6rem;
-    }
-  }
-}
 
 
 /*--------------------------------------------*/
+
+.btn-form {
+    margin-top: 5rem;
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+}
+
+.btn-index {
+    font-size: 2rem;
+    font-weight: 600;
+    &__cancel {
+        background: white;
+        color: $primary-color;
+        border: 0.1rem solid $primary-color;
+        padding: 1.5rem 2rem;
+        padding-right: 3rem;
+        border-radius: 3rem 0 0 3rem;
+        position: relative;
+        left: 3rem;
+        transition: all .3s;
+        &:hover {
+            box-shadow: inset 0px 0px 0px 1px #0f44a0;
+        }
+    }
+    &__indexed {
+        background: $primary-color;
+        color: white;
+        padding: 1.5rem 5rem;
+        border-radius: 3rem;
+        border: 0.1rem solid $primary-color;
+        position: relative;
+        z-index: 1;
+        transition: all .3s;
+        &:hover {
+            background: #0d4ab4;
+            box-shadow: 0px 1px 3px 0px #757575;
+            padding-left: 6rem;
+        }
+    }
+}
+
+
+/*--------------------------------------------*/
+
+
 /*              BTN LOGIN                     */
+
+
 /*--------------------------------------------*/
 
-.btn-login{
-  text-align: center;
-  display: inline-block;
-  position: relative;
-  text-decoration: none;
-  color: #fff;
-  background: $primary-color;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  padding: 1.3rem 0;;
-  width: 15rem;
-  border-radius: 1rem;
-  overflow: hidden;
-
-  &.effect{
-    transition: all 0.2s linear 0s;
-
-    &:before{
-      content: "\f30b";
-      font-family: "Font Awesome 5 Pro";
-      font-size: 15px;
-      position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      right: 0;
-      top: 0;
-      opacity: 0;
-      height: 100%;
-      width: 40px;
-      transition: all 0.2s linear 0s;
+.btn-login {
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    background: $primary-color;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding: 1.3rem 0;
+    cursor: pointer;
+    width: 15rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    &.effect {
+        transition: all 0.2s linear 0s;
+        & .svg-inline--fa {
+            font-size: 14px;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            height: 100%;
+            transition: all 0.2s linear 0s;
+        }
+        &:hover {
+            text-indent: -20px;
+            background-color: #0f44a0;
+            & .svg-inline--fa {
+                opacity: 1;
+                right: 2rem;
+            }
+        }
+        &:active {
+            transform: scale(.95);
+        }
     }
-
-    &:hover{
-      text-indent: -20px;
-
-      &:before{
-        opacity: 1;
-        text-indent: 0px;
-      }
-    }
-
-    
-  }
 }
 
 
+/*--------------------------------------------*/
+
+
+/*              BTN DROPDOWN                  */
+
 
 /*--------------------------------------------*/
-/*              BTN DROPDOWN                  */
-/*--------------------------------------------*/
+
 .btn-split ul {
     font-size: 0;
     list-style-type: none;
     display: inline-block;
     height: 100%;
-  }
-  .btn-split ul li {
+}
+
+.btn-split ul li {
     font-size: 1.3rem;
     font-weight: 400;
     color: #333;
@@ -184,15 +189,18 @@
     padding: 1.5rem;
     position: relative;
     height: 100%;
-  }
-  .btn-split ul li ul {
+}
+
+.btn-split ul li ul {
     display: none;
-  }
-  .btn-split ul li:hover {
+}
+
+.btn-split ul li:hover {
     cursor: pointer;
     background-color: #08388b;
-  }
-  .btn-split ul li:hover ul {
+}
+
+.btn-split ul li:hover ul {
     display: block;
     width: 11rem;
     left: 0;
@@ -201,14 +209,16 @@
     text-align: center;
     overflow: hidden;
     border-radius: 0 1.5rem 0.8rem 0.5rem;
-  }
-  .btn-split ul li:hover ul li {
+}
+
+.btn-split ul li:hover ul li {
     background-color: #e6edf8;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .btn-split ul li:hover ul li span {
+}
+
+.btn-split ul li:hover ul li span {
     float: right;
     color: #f9f9f9;
     background-color: #f03861;
@@ -216,13 +226,13 @@
     text-align: center;
     font-size: 0.8rem;
     border-radius: 0.3rem;
-  }
-  .btn-split ul li:hover ul li:hover {
+}
+
+.btn-split ul li:hover ul li:hover {
     background-color: #cbdbf4;
-  }
+}
 
-
-  .btn-split {
+.btn-split {
     background: $primary-color;
     color: white;
     position: relative;
@@ -239,27 +249,29 @@
     top: 50%;
     transform: translatey(-50%);
     transition: all .2s;
-    
-    &:hover{
+    &:hover {
         box-shadow: 0px 3px 6px #aeaeae;
     }
-  }
+}
 
-  .first-li {
+.first-li {
     border-radius: 0 2.5rem 2.5rem 0;
     top: 0;
     height: 4.7rem;
-  }
-  .arrow-icon {
+}
+
+.arrow-icon {
     color: white;
     position: relative;
     top: -0.2rem;
     right: 0.2rem;
-  }
-  .file-icon{margin-right: 0.8rem;}
+}
 
+.file-icon {
+    margin-right: 0.8rem;
+}
 
-  .btn-split.btn-instruction {
+.btn-split.btn-instruction {
     position: initial;
     margin-top: 5rem;
     width: 20rem;
@@ -267,8 +279,9 @@
     font-size: 2rem;
     z-index: 4;
 }
-.btn-split.btn-split.btn-instruction .first-li{
-  font-size: 2rem;
+
+.btn-split.btn-split.btn-instruction .first-li {
+    font-size: 2rem;
     height: 6rem;
     top: 0.3rem;
     display: flex;
@@ -280,68 +293,87 @@
 
 
 /*--------------------------------------------*/
+
+
 /*              BTN MODAL                     */
+
+
 /*--------------------------------------------*/
-.btn-modal{
-  bottom: -2.5rem;
-  right: 0rem;
+
+.btn-modal {
+    bottom: -2.5rem;
+    right: 0rem;
 }
 
 
 /*--------------------------------------------*/
+
+
 /*              BTN TIRA                     */
+
+
 /*--------------------------------------------*/
-.btn-tira{
-  position: relative;
+
+.btn-tira {
+    position: relative;
     left: -1rem;
     color: white;
     background: $primary-color;
     border-radius: 1rem;
-
-    &:hover{
-      box-shadow: 0px 3px 10px 0px #e2e2e2;
+    &:hover {
+        box-shadow: 0px 3px 10px 0px #e2e2e2;
     }
-
     & li.first-li {
-      background: $primary-color;
+        background: $primary-color;
+        &:hover {
+            background: #08388b;
+        }
+    }
+    & .arrow-icon {
+        color: white;
+    }
+    & ul li:hover ul {
+        margin-top: 0.9rem;
+        left: -7.5rem;
+        border-radius: 0 0 1rem 1rem;
+    }
+    & .first-li {
+        border-radius: 0 1rem 1rem 0;
+    }
+}
 
-      &:hover{
-        background: #08388b;
-      }
-  }
-  & .arrow-icon{
-    color: white;
-  }
-  & ul li:hover ul{
-    margin-top: 0.9rem;
-    left: -7.5rem;
-    border-radius: 0 0 1rem 1rem;
-  }
-  & .first-li {
-    border-radius: 0 1rem 1rem 0; 
-}
-}
 
 /*--------------------------------------------*/
+
+
 /*              BTN PDFTRON HEADER            */
+
+
 /*--------------------------------------------*/
-.btn-pdfheader{
-  position: relative;
+
+.btn-pdfheader {
+    position: relative;
     left: 0;
     box-shadow: none;
     padding-left: 3rem;
     width: 13rem;
     padding-right: 1rem;
-    & ul li:hover ul{  
-      margin-top: 0.9rem;
+    & ul li:hover ul {
+        margin-top: 0.9rem;
     }
 }
 
+
 /*--------------------------------------------*/
+
+
 /*              BTN PDF INFORMATION           */
+
+
 /*--------------------------------------------*/
-.btn.btn-pdfinfo{
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
-  text-transform: capitalize;
+
+.btn.btn-pdfinfo {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    text-transform: capitalize;
 }
