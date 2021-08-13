@@ -1,48 +1,47 @@
 /*--------------------------------------------*/
+
+
 /*              LOGIN                         */
+
+
 /*--------------------------------------------*/
-.login{
+
+.login {
     display: flex;
     height: 50rem;
     border-radius: 1rem;
     overflow: hidden;
     width: 90rem;
     box-shadow: 0px 8px 25px #d3deeff2;
-    
-    &__image{
-      background: linear-gradient(180deg, #002564b8 0%, #0025643b 137%);
-      background-size: cover;
-      width: 45rem;
-      background-position: center;
-      filter: brightness(1.3);
+    &__image {
+        background: linear-gradient(180deg, #002564b8 0%, #0025643b 137%), url(../../img/bg.webp);
+        background-size: cover;
+        width: 45rem;
+        background-position: center;
+        filter: brightness(1.3);
     }
-
-    &__content{
+    &__content {
         padding: 10rem 5rem;
         padding-top: 7.5rem;
         flex: 1 0 auto;
         background: white;
     }
-
-    &__footer{
-      text-align: center;
-      color: $primary-color;
-      margin-top: 2rem;
-      font-size: 1.1rem;
+    &__footer {
+        text-align: center;
+        color: $primary-color;
+        margin-top: 2rem;
+        font-size: 1.1rem;
     }
-    &__btn{
-      margin-top: 5rem;
+    &__btn {
+        margin-top: 5rem;
     }
-
-    &__label{
-      display: block;
-      margin: 1.5rem 0;
-      color: $primary-color;
-      cursor: pointer;
-
+    &__label {
+        display: block;
+        margin: 1.5rem 0;
+        color: $primary-color;
+        cursor: pointer;
     }
-
-    &__header{
+    &__header {
         display: flex;
         flex-direction: column;
         font-size: 1.8rem;
@@ -50,71 +49,68 @@
         align-items: flex-start;
         margin-bottom: 3rem;
     }
-
-    &__logo{
+    &__logo {
         width: 23rem;
     }
 }
 
 
 /*--------------------------------------------*/
+
+
 /*              FORM GROUP FILL               */
+
+
 /*--------------------------------------------*/
+
 .form-group {
-  position: relative;
-  padding: 1.5rem 0 0;
-  margin-top: 1rem;
-  width: 100%;
-
-  &__field{
-    font-family: inherit;
+    position: relative;
+    padding: 1.5rem 0 0;
+    margin-top: 1rem;
     width: 100%;
-    border: 0;
-    border-radius: 4px;
-    outline: 0;
-    font-size: 1.3rem;
-    color: $text-color;
-    padding: 1.3rem 1rem;
-    background: $secondary-color;
-    transition: border-color 0.2s;
-    font-size: 1.4rem;
-
-   
-
-    &::placeholder {
-      color: transparent;
+    &__field {
+        font-family: inherit;
+        width: 100%;
+        border: 0;
+        border-radius: 4px;
+        outline: 0;
+        font-size: 1.3rem;
+        color: $text-color;
+        padding: 1.3rem 1rem;
+        background: $secondary-color;
+        transition: border-color 0.2s;
+        font-size: 1.4rem;
+        &::placeholder {
+            color: transparent;
+        }
+        &:placeholder-shown~.form-group__label {
+            font-size: 1.3rem;
+            cursor: text;
+            top: 2.8rem;
+        }
+        &:focus {
+            ~.form-group__label {
+                position: absolute;
+                top: -0.2rem;
+                display: block;
+                transition: 0.2s;
+                font-size: 1.3rem;
+                color: $primary-color;
+                font-weight: 600;
+            }
+        }
+        &:required,
+        &:invalid {
+            box-shadow: none;
+        }
     }
-
-    &:placeholder-shown ~ .form-group__label {
-      font-size: 1.3rem;
-      cursor: text;
-      top: 2.8rem;
-    }
-
-    &:focus {
-      ~ .form-group__label {
+    &__label {
         position: absolute;
-        top: -0.2rem;
+        top: -0.3rem;
+        left: 1rem;
         display: block;
         transition: 0.2s;
         font-size: 1.3rem;
-        color: $primary-color;
-        font-weight:600;    
-      }
+        color: #5b6d97;
     }
-    &:required,
-    &:invalid {
-      box-shadow:none;
-    }
-  }
-
-  &__label{
-    position: absolute;
-    top: -0.3rem;
-    left: 1rem;
-    display: block;
-    transition: 0.2s;
-    font-size: 1.3rem;
-    color: #5b6d97;
-  }
 }
