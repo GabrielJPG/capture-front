@@ -15,25 +15,25 @@ export const LanguageSelector: React.FC = () => {
     const listOfLanguages: Array<LangItem> = [
         {
             language: "Spanish",
-            flagUri: "img/spain-flag.jpg",
+            flagUri: "img/spain-flag.webp",
             active: true,
             short: 'es'
         },
         {
             language: "English",
-            flagUri: "img/usa-flag.jpg",
+            flagUri: "img/usa-flag.webp",
             active: true,
             short: 'en'
         },
         {
             language: "French",
-            flagUri: "img/french-flag.jpg",
+            flagUri: "img/french-flag.webp",
             active: false,
             short: 'fr'
         },
         {
             language: "Portuguese",
-            flagUri: "img/Portuguese-flag.jpg",
+            flagUri: "img/Portuguese-flag.webp",
             active: false,
             short: 'pt'
         }
@@ -42,7 +42,7 @@ export const LanguageSelector: React.FC = () => {
 
     return <div className="language">
         <div className="language__flag">
-            <img src="img/spain-flag.jpg" alt="" />
+            <img src="img/spain-flag.webp" alt="" />
         </div>
 
         <span className="language__dropdown">
