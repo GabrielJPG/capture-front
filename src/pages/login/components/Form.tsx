@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { getInitialProps } from "react-i18next";
 import { ApplicationContext } from "../../../contexts/App.Context";
 
 export type Credentials = {

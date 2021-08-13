@@ -7,7 +7,6 @@ import {
   BrowserRouter as Router
   , Switch
   , Route
-  , Link
 } from 'react-router-dom';
 import i18n from './translation/i18n';
 
@@ -22,12 +21,11 @@ function App() {
   i18n.changeLanguage(lang)
   return (
     <ApplicationContext.Provider value={initialContext}>
-      {/* <Login /> */}
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/login" component={Login} />
-          <Route path="/home" component={Home} />
+          <Route path="/app" component={Home} />
         </Switch>
       </Router>
     </ApplicationContext.Provider>

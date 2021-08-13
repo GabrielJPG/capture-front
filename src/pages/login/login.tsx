@@ -1,17 +1,18 @@
-import React, { useContext } from "react"
-import { ApplicationContext } from "../../contexts/App.Context"
+import React from "react"
 import { Footer } from "./components/Footer"
 import { Form } from "./components/Form"
 import { LanguageSelector } from "./components/LanguageSelector"
 import { LoginHeader } from "./components/LoginHeader"
+import { useHistory } from "react-router-dom";
 
 export const Login: React.FC = () => {
     const [credentials, setCredentials] = React.useState({})
+    const history = useHistory();
+    console.log(credentials);
 
     const applyCredentials = (credentials: any) => {
         setCredentials(credentials)
-        //const { onLogin } = useContext(ApplicationContext)
-        //onLogin(credentials)
+        history.push("/app")
     }
 
     return <div>
@@ -21,7 +22,7 @@ export const Login: React.FC = () => {
                 <div className="login__content">
                     <LoginHeader />
                     <LanguageSelector />
-                    <Form emitCredential={(form) => setCredentials(form)} />
+                    <Form emitCredential={(form) => applyCredentials(form)} />
                 </div>
             </div>
             <Footer />
