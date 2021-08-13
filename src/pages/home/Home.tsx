@@ -1,26 +1,28 @@
 import { Route, Switch, useLocation } from "react-router-dom"
-import { CustomRoute } from "../../shared/custom-route"
+import { AuthRoute } from "../../shared/custom-route"
 
 export const Home: React.FC = () => {
+    const section = '/app'
     return <div>
         <div>Home</div>
         <Switch>
-            <Route path="/app/p1" component={P1} />
-            <CustomRoute path="/app/p2" component={P2} />
-            <CustomRoute path="/app/p3" component={P3} />
-            <CustomRoute path="/app/*">
+            <Route path={`${section}/Dashboard`} component={Dashboard} />
+            <AuthRoute path={`${section}/Documents`} component={Documents} />
+            <AuthRoute path={`${section}/Files`} component={Files} />
+            <AuthRoute path={`${section}/Settings`} component={Settings} />
+            <AuthRoute path={`${section}/*`}>
                 <NoMatch />
-            </CustomRoute>
+            </AuthRoute>
         </Switch>
     </div>
 }
 
-const P1 = () => <div>P1</div>
-const P2 = () => <div>P2</div>
-const P3 = () => <div>P3</div>
+const Dashboard = () => <div>Dashboard</div>
+const Documents = () => <div>Documents</div>
+const Files = () => <div>Files</div>
+const Settings = () => <div>Settings</div>
 const NoMatch = () => {
     let location = useLocation();
-
     return <div>
         <h3>
             No match for <code>{location.pathname}</code>

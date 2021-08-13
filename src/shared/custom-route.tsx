@@ -1,13 +1,12 @@
 import React from 'react'
-import * as ReactRouter from 'react-router-dom'
+import { Route, useHistory } from 'react-router-dom'
 import { useProvideAuth } from '../hooks/Auth-hooks'
-import { useHistory } from "react-router-dom";
 
 /*
  * Route wrapper component that extracts route params
  * and passes them to the given component prop.
  */
-export const CustomRoute = ({
+export const AuthRoute = ({
     component: Component,
     ...rest
 }: any) => {
@@ -18,7 +17,7 @@ export const CustomRoute = ({
         history.push("/login")
     }
     return (
-        <ReactRouter.Route
+        <Route
             {...rest}
             render={({ match: { params } }) => <Component {...params} />}
         />
