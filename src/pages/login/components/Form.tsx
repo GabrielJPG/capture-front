@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ApplicationContext } from "../../../contexts/App.Context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
 export type Credentials = {
     username: string;
@@ -28,7 +30,9 @@ export const Form: React.FC<{ emitCredential: (form: Credentials) => void }> = (
         </label>
 
         <div className="login__btn" onClick={() => props.emitCredential(buildCredentials())}>
-            <span className="btn-login effect">{translate('Login')}</span>
+            <span className="btn-login effect">{translate('Login')}
+            <FontAwesomeIcon icon={faAngleRight} />
+            </span>
         </div>
     </div>;
 };
