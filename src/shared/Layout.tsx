@@ -135,22 +135,24 @@ export const Layout: React.FC = (props) => {
             </div>
         </section>
         <section className="section-workspace">
+            {/* this section is real body */}
             <header className="header">
                 <div className="c-account">
                     <img src={profile} alt="x" className="c-account__image" />
-
                     <nav className="c-account__logout">
                         <div className="c-account__name">Anne Lorraine Hernández</div>
                         <ul>
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             <li><a href="#">Log out <FontAwesomeIcon icon={faSortDown} /></a>
                                 <ul>
-                                    <li><a href="">Perfil</a></li>
-                                    <li><a href="">Cerrar Sesión</a></li>
+                                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                    <li><a href="#">Perfil</a></li>
+                                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                    <li><a href="#">Cerrar Sesión</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </nav>
-
                 </div>
             </header>
             {props.children}
