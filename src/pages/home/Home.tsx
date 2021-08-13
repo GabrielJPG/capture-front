@@ -1,19 +1,22 @@
 import { Route, Switch, useLocation } from "react-router-dom"
 import { AuthRoute } from "../../shared/custom-route"
+import { Layout } from "../../shared/Layout"
 
 export const Home: React.FC = () => {
     const section = '/app'
     return <div>
-        <div>Home</div>
-        <Switch>
-            <Route path={`${section}/Dashboard`} component={Dashboard} />
-            <AuthRoute path={`${section}/Documents`} component={Documents} />
-            <AuthRoute path={`${section}/Files`} component={Files} />
-            <AuthRoute path={`${section}/Settings`} component={Settings} />
-            <AuthRoute path={`${section}/*`}>
-                <NoMatch />
-            </AuthRoute>
-        </Switch>
+        <Layout>
+            <div>Home</div>
+            <Switch>
+                <Route path={`${section}/Dashboard`} component={Dashboard} />
+                <AuthRoute path={`${section}/Documents`} component={Documents} />
+                <AuthRoute path={`${section}/Files`} component={Files} />
+                <AuthRoute path={`${section}/Settings`} component={Settings} />
+                <Route path={`${section}/*`}>
+                    <NoMatch />
+                </Route>
+            </Switch>
+        </Layout>
     </div>
 }
 
