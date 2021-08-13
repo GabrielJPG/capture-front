@@ -1,5 +1,9 @@
 import React, { useContext } from "react";
 import { ApplicationContext } from "../../../contexts/App.Context";
+import esIcon from "../../../assets/img/spain-flag.webp"
+import frIcon from "../../../assets/img/france-flag.webp"
+import usIcon from "../../../assets/img/usa-flag.webp"
+import ptIcon from "../../../assets/img/portuguese-flag.webp"
 
 export type LangItem = {
     language: string,
@@ -15,25 +19,25 @@ export const LanguageSelector: React.FC = () => {
     const listOfLanguages: Array<LangItem> = [
         {
             language: "Spanish",
-            flagUri: "img/spain-flag.webp",
+            flagUri: esIcon,
             active: true,
             short: 'es'
         },
         {
             language: "English",
-            flagUri: "img/usa-flag.webp",
+            flagUri: usIcon,
             active: true,
             short: 'en'
         },
         {
             language: "French",
-            flagUri: "img/french-flag.webp",
+            flagUri: frIcon,
             active: false,
             short: 'fr'
         },
         {
             language: "Portuguese",
-            flagUri: "img/Portuguese-flag.webp",
+            flagUri: ptIcon,
             active: false,
             short: 'pt'
         }
@@ -42,7 +46,7 @@ export const LanguageSelector: React.FC = () => {
 
     return <div className="language">
         <div className="language__flag">
-            <img src="img/spain-flag.webp" alt="" />
+            <img src={listOfLanguages.find(l => l.short === language)?.flagUri} alt="" />
         </div>
 
         <span className="language__dropdown">
