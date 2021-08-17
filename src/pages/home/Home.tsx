@@ -1,34 +1,62 @@
 import { Route, Switch, useLocation } from "react-router-dom"
 import { AuthRoute } from "../../shared/custom-route"
+import { EmptyHomePage, ProccessHeader, SearchProcsess } from '../Dashboard/Index'
+import { FilesPage, FileProcessHeader, FileSearchProcess } from '../Files/Index'
 import { Layout } from "../../shared/Layout"
+
+
 
 export const Home: React.FC = () => {
     const section = '/app'
-    return <div>
-        <Layout>
-            <div>Home</div>
-            <Switch>
-                <Route path={`${section}/Dashboard`} component={Dashboard} />
-                <AuthRoute path={`${section}/Documents`} component={Documents} />
-                <AuthRoute path={`${section}/Files`} component={Files} />
-                <AuthRoute path={`${section}/Settings`} component={Settings} />
-                <Route path={`${section}/*`}>
-                    <NoMatch />
-                </Route>
-            </Switch>
-        </Layout>
-    </div>
+
+    const pages = {
+        '/app': {
+            header: <ProccessHeader />,
+            search: <SearchProcsess />,
+        },
+        '/app/dashboard': {
+            header: <ProccessHeader />,
+            search: <SearchProcsess />,
+        },
+        '/app/files': {
+            header: <FileProcessHeader />,
+            search: <FileSearchProcess />,
+        },
+        '/app/documents': {
+            header: <ProccessHeader />,
+            search: < SearchProcsess />,
+        },
+        '/app/qr-documents': {
+            header: <ProccessHeader />,
+            search: < SearchProcsess />,
+        },
+        '/app/settings': Settings,
+    } as any
+    const render = pages[useLocation().pathname]
+
+    return <Layout ProcessHeader={render ? render.header : <div />} SearchPanel={render ? render.search : <div />}>
+        <Switch>
+            <Route path={`${section}/`} exact component={EmptyHomePage} />
+            <AuthRoute path={`${section}/documents`} component={Documents} />
+            <Route path={`${section}/files`} component={FilesPage} />
+            <AuthRoute path={`${section}/settings`} component={Settings} />
+            <AuthRoute path={`${section}/settings`} component={qrDocument} />
+            <Route path={`${section}/*`}>
+                <NoMatch />
+            </Route>
+        </Switch>
+    </Layout>
 }
 
-const Dashboard = () => <div>Dashboard</div>
-const Documents = () => <div>Documents</div>
-const Files = () => <div>Files</div>
-const Settings = () => <div>Settings</div>
-const NoMatch = () => {
+const qrDocument: React.FC = () => <div>x</div>
+const Documents: React.FC = () => <div>Documents</div>
+const Settings: React.FC = () => <div>Settings</div>
+const NoMatch: React.FC = () => {
     let location = useLocation();
-    return <div>
+    return <div className="process-workspace">
         <h3>
             No match for <code>{location.pathname}</code>
         </h3>
     </div>
 }
+
