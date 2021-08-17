@@ -14,7 +14,7 @@ export const FileProcessHeader: React.FC = (props) => {
         <div className="process-header">
             <div className="process-header--layout__header">
 
-                <h2 className="primary-heading">Home</h2>
+                <h2 className="primary-heading">Files</h2>
                 <div className="process-header--layout__name u-no-margin">
                 </div>
             </div>

@@ -1,16 +1,9 @@
-import { useLocation } from "react-router-dom";
+
 import LogoImage from '../../assets/img/logo.png';
 
-export const NoMatch: React.FC = () => {
-    let location = useLocation();
-    return <div className="process-workspace">
-        <h3>
-            No match for <code>{location.pathname}</code>
-        </h3>
-    </div>
-}
+export const Settings: React.FC = () => <div>Settings</div>
 
-export const Procsess404: React.FC = (props) => {
+export const ProcsessSettings: React.FC = (props) => {
     return <div className="process">
         <span className="logo-container">
             <img src={LogoImage} alt="" className="logo-container__logo" />
@@ -19,12 +12,12 @@ export const Procsess404: React.FC = (props) => {
     </div>
 }
 
-export const ProccessHeader404: React.FC = (props) => {
+export const ProccessHeaderSetting: React.FC = (props) => {
     return (
         <div className="process-header">
             <div className="process-header--layout__header">
 
-                <h2 className="primary-heading">404</h2>
+                <h2 className="primary-heading">Settings</h2>
                 <div className="process-header--layout__name u-no-margin">
                 </div>
             </div>

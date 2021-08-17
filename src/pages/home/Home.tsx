@@ -2,15 +2,16 @@ import { AuthRoute } from '../../shared/custom-route';
 import { EmptyHomePage, ProccessHeader, SearchProcsess } from '../Dashboard/Index';
 import { FileProcessHeader, FileSearchProcess, FilesPage } from '../Files/Index';
 import { Layout } from '../../shared/Layout';
-import { NoMatch } from '../404/private';
+import { NoMatch, ProccessHeader404, Procsess404 } from '../404/private';
 import {
-    Route,
     Switch,
     useHistory,
     useLocation
 } from 'react-router-dom';
 import { useContext } from 'react';
 import { ApplicationContext } from '../../contexts/App.Context';
+import { Profile, ProfileProccessHeader, ProfileSearchProcsess } from '../Profile';
+import { ProccessHeaderSetting, ProcsessSettings, Settings } from '../Settings';
 
 
 
@@ -39,9 +40,24 @@ export const Home: React.FC = () => {
             header: <ProccessHeader />,
             search: < SearchProcsess />,
         },
-        '/app/settings': Settings,
+        '/app/profile': {
+            header: <ProfileProccessHeader />,
+            search: <ProfileSearchProcsess />,
+        },
+        '*': {
+            header: <ProccessHeader404 />,
+            search: <Procsess404 />,
+        },
+        '/app/settings': {
+            header: <ProccessHeaderSetting />,
+            search: <ProcsessSettings />,
+        }
     } as any
-    const render = pages[useLocation().pathname]
+    let render = pages[useLocation().pathname]
+
+    if (!render) {
+        render = pages['*']
+    }
 
     if (routes.pathname === '/app') {
         history.push("/app/home")
@@ -53,7 +69,8 @@ export const Home: React.FC = () => {
             <AuthRoute path={`${section}/documents`} component={Documents} />
             <AuthRoute path={`${section}/files`} component={FilesPage} />
             <AuthRoute path={`${section}/settings`} component={Settings} />
-            <AuthRoute path={`${section}/settings`} component={qrDocument} />
+            <AuthRoute path={`${section}/qr-document`} component={qrDocument} />
+            <AuthRoute path={`${section}/profile`} component={Profile} />
             <AuthRoute path={`${section}/*`}>
                 <NoMatch />
             </AuthRoute>
@@ -63,4 +80,3 @@ export const Home: React.FC = () => {
 
 const qrDocument: React.FC = () => <div>x</div>
 const Documents: React.FC = () => <div>Documents</div>
-const Settings: React.FC = () => <div>Settings</div>

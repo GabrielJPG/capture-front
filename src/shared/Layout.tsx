@@ -1,9 +1,10 @@
-import profile from '../assets/img/profile.png';
 import React, { useContext, useState } from 'react';
 import { ApplicationContext } from '../contexts/App.Context';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { MenuSection } from './MenuSection';
+import { useProvideAuth } from '../hooks/Auth-hooks';
+import { Link } from 'react-router-dom';
 
 
 export type LayoutProps = {
@@ -13,7 +14,8 @@ export type LayoutProps = {
 }
 
 export const Layout: React.FC<LayoutProps> = (props) => {
-    const { translate } = useContext(ApplicationContext);
+    const { translate, session } = useContext(ApplicationContext);
+    const auth = useProvideAuth()
     const [currentOption, setCurrentOption] = useState('Home')
     return <div className="l-container-base">
         <section className="l-section-bag">
@@ -24,17 +26,17 @@ export const Layout: React.FC<LayoutProps> = (props) => {
             {/* this section is real body */}
             <header className="header">
                 <div className="c-account">
-                    <img src={profile} alt="x" className="c-account__image" />
+                    <img src={session?.photoProfile} alt="x" className="c-account__image" />
                     <nav className="c-account__logout">
-                        <div className="c-account__name">Anne Lorraine Hernández</div>
+                        <div className="c-account__name">{session?.fullName}</div>
                         <ul>
                             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             <li><a href="#">{translate("Logout")} <FontAwesomeIcon icon={faSortDown} /></a>
                                 <ul>
                                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                    <li><a href="#">{translate("Profile")}</a></li>
+                                    <li><Link to='/app/profile' >{translate("Profile")}</Link></li>
                                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                    <li><a href="#">{translate("CloseSession")}</a></li>
+                                    <li><a href="" onClick={() => auth.logout()}>{translate("CloseSession")}</a></li>
                                 </ul>
                             </li>
                         </ul>

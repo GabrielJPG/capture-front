@@ -5,6 +5,7 @@ export type Session = {
     email: string;
     fullName: string;
     expireDate: Date;
+    photoProfile: string;
 }
 
 export interface IApplicationContext {
@@ -26,7 +27,8 @@ const initialState: IApplicationContext = {
         userName: '',
         email: '',
         fullName: '',
-        expireDate: new Date()
+        expireDate: new Date(),
+        photoProfile: ''
     },
     setSession: (session: Session | null) => { },
     isAuth: false,

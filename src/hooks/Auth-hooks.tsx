@@ -1,6 +1,8 @@
 import dayjs from "dayjs";
 import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { ApplicationContext, Session } from "../contexts/App.Context";
+import profile from '../assets/img/profile.png';
 
 /**
  * Represents responsibility of a component to handle authentication.
@@ -48,6 +50,7 @@ export interface IAuth {
 */
 export const useProvideAuth = (): IAuth => {
     const { session, setSession, isAuth, setIsAuth } = useContext(ApplicationContext)
+    const history = useHistory();
     const login = (user: string, password: string) => new Promise<void>((resolve) => {
         setTimeout(() => {
             setSession({
@@ -55,6 +58,7 @@ export const useProvideAuth = (): IAuth => {
                 fullName: 'Prodoctivity User',
                 email: 'prodoctivity@prodoctivity@mail.com',
                 expireDate: dayjs().add(1, "days").toDate(),
+                photoProfile: profile,
             })
             setIsAuth(true);
             resolve();
@@ -63,6 +67,7 @@ export const useProvideAuth = (): IAuth => {
     const logout = () => {
         setSession(null);
         setIsAuth(false);
+        history.push("/");
     };
     return {
         isAuth,
