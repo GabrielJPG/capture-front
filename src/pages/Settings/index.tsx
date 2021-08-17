@@ -1,7 +1,7 @@
 
 import LogoImage from '../../assets/img/logo.png';
 
-export const Settings: React.FC = () => <div>Settings</div>
+export const Settings: React.FC = () => <div className="process-workspace">Settings</div>
 
 export const ProcsessSettings: React.FC = (props) => {
     return <div className="process">
