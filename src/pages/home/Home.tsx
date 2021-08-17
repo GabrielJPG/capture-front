@@ -1,4 +1,4 @@
-import { Route, Switch, useLocation } from "react-router-dom"
+import { Route, Switch, useHistory, useLocation } from "react-router-dom"
 import { AuthRoute } from "../../shared/custom-route"
 import { EmptyHomePage, ProccessHeader, SearchProcsess } from '../Dashboard/Index'
 import { FilesPage, FileProcessHeader, FileSearchProcess } from '../Files/Index'
@@ -8,13 +8,11 @@ import { Layout } from "../../shared/Layout"
 
 export const Home: React.FC = () => {
     const section = '/app'
+    const history = useHistory();
+    const routes = useLocation();
 
     const pages = {
-        '/app': {
-            header: <ProccessHeader />,
-            search: <SearchProcsess />,
-        },
-        '/app/dashboard': {
+        '/app/home': {
             header: <ProccessHeader />,
             search: <SearchProcsess />,
         },
@@ -34,9 +32,13 @@ export const Home: React.FC = () => {
     } as any
     const render = pages[useLocation().pathname]
 
+    if (routes.pathname === '/app') {
+        history.push("/app/home")
+    }
+
     return <Layout ProcessHeader={render ? render.header : <div />} SearchPanel={render ? render.search : <div />}>
         <Switch>
-            <Route path={`${section}/`} exact component={EmptyHomePage} />
+            <Route path={`${section}/home`} exact component={EmptyHomePage} />
             <AuthRoute path={`${section}/documents`} component={Documents} />
             <Route path={`${section}/files`} component={FilesPage} />
             <AuthRoute path={`${section}/settings`} component={Settings} />
