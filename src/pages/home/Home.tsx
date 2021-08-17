@@ -8,8 +8,6 @@ import {
     useHistory,
     useLocation
 } from 'react-router-dom';
-import { useContext } from 'react';
-import { ApplicationContext } from '../../contexts/App.Context';
 import { Profile, ProfileProccessHeader, ProfileSearchProcsess } from '../Profile';
 import { ProccessHeaderSetting, ProcsessSettings, Settings } from '../Settings';
 
@@ -19,9 +17,6 @@ export const Home: React.FC = () => {
     const section = '/app'
     const history = useHistory();
     const routes = useLocation();
-    const { session, isAuth } = useContext(ApplicationContext);
-
-    console.log([session, isAuth]);
 
     const pages = {
         '/app/home': {

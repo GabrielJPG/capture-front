@@ -10,6 +10,8 @@ import {
   , Switch
   , Route
 } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [lang, setLang] = useState('es');
@@ -26,7 +28,7 @@ function App() {
     setIsAuth: setIsAuth
   }
   i18n.changeLanguage(lang)
-  return (
+  return (<div>
     <ApplicationContext.Provider value={initialContext}>
       <Router>
         <Switch>
@@ -37,6 +39,8 @@ function App() {
         </Switch>
       </Router>
     </ApplicationContext.Provider>
+    <ToastContainer />
+  </div>
   );
 }
 export default App;

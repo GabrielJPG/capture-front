@@ -1,8 +1,12 @@
+import React from "react";
 import { useLocation } from "react-router-dom";
 import LogoImage from '../../assets/img/logo.png';
+import { useNotify } from "../../hooks/Notification-hook";
 
 export const NoMatch: React.FC = () => {
     let location = useLocation();
+    const toast = useNotify('error');
+    toast.show('Error');
     return <div className="process-workspace">
         <h3>
             No match for <code>{location.pathname}</code>
