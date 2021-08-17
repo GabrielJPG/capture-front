@@ -1,8 +1,16 @@
-import { Route, Switch, useHistory, useLocation } from "react-router-dom"
-import { AuthRoute } from "../../shared/custom-route"
-import { EmptyHomePage, ProccessHeader, SearchProcsess } from '../Dashboard/Index'
-import { FilesPage, FileProcessHeader, FileSearchProcess } from '../Files/Index'
-import { Layout } from "../../shared/Layout"
+import { AuthRoute } from '../../shared/custom-route';
+import { EmptyHomePage, ProccessHeader, SearchProcsess } from '../Dashboard/Index';
+import { FileProcessHeader, FileSearchProcess, FilesPage } from '../Files/Index';
+import { Layout } from '../../shared/Layout';
+import { NoMatch } from '../404/private';
+import {
+    Route,
+    Switch,
+    useHistory,
+    useLocation
+} from 'react-router-dom';
+import { useContext } from 'react';
+import { ApplicationContext } from '../../contexts/App.Context';
 
 
 
@@ -10,6 +18,9 @@ export const Home: React.FC = () => {
     const section = '/app'
     const history = useHistory();
     const routes = useLocation();
+    const { session, isAuth } = useContext(ApplicationContext);
+
+    console.log([session, isAuth]);
 
     const pages = {
         '/app/home': {
@@ -38,14 +49,14 @@ export const Home: React.FC = () => {
 
     return <Layout ProcessHeader={render ? render.header : <div />} SearchPanel={render ? render.search : <div />}>
         <Switch>
-            <Route path={`${section}/home`} exact component={EmptyHomePage} />
+            <AuthRoute path={`${section}/home`} exact component={EmptyHomePage} />
             <AuthRoute path={`${section}/documents`} component={Documents} />
-            <Route path={`${section}/files`} component={FilesPage} />
+            <AuthRoute path={`${section}/files`} component={FilesPage} />
             <AuthRoute path={`${section}/settings`} component={Settings} />
             <AuthRoute path={`${section}/settings`} component={qrDocument} />
-            <Route path={`${section}/*`}>
+            <AuthRoute path={`${section}/*`}>
                 <NoMatch />
-            </Route>
+            </AuthRoute>
         </Switch>
     </Layout>
 }
@@ -53,12 +64,3 @@ export const Home: React.FC = () => {
 const qrDocument: React.FC = () => <div>x</div>
 const Documents: React.FC = () => <div>Documents</div>
 const Settings: React.FC = () => <div>Settings</div>
-const NoMatch: React.FC = () => {
-    let location = useLocation();
-    return <div className="process-workspace">
-        <h3>
-            No match for <code>{location.pathname}</code>
-        </h3>
-    </div>
-}
-

@@ -1,18 +1,22 @@
-import React from "react"
-import { Footer } from "./components/Footer"
-import { Form } from "./components/Form"
-import { LanguageSelector } from "./components/LanguageSelector"
-import { LoginHeader } from "./components/LoginHeader"
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { Footer } from './components/Footer';
+import { Form } from './components/Form';
+import { LanguageSelector } from './components/LanguageSelector';
+import { LoginHeader } from './components/LoginHeader';
+import { useHistory } from 'react-router-dom';
+import { useProvideAuth } from '../../hooks/Auth-hooks';
 
 export const Login: React.FC = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [credentials, setCredentials] = React.useState({})
     const history = useHistory();
-    console.log(credentials);
+    const auth = useProvideAuth();
 
     const applyCredentials = (credentials: any) => {
         setCredentials(credentials)
-        history.push("/app")
+        auth.login(credentials.username, credentials.password).then(() => {
+            history.push("/app");
+        })
     }
 
     return <div>

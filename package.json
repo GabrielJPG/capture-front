@@ -13,6 +13,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "dayjs": "^1.10.6",
     "i18next": "^20.4.0",
     "obit-fa-pro-duotone": "^5.15.3",
     "react": "^17.0.2",

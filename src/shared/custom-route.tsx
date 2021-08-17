@@ -16,6 +16,8 @@ export const AuthRoute = ({
     if (!auth.isAuth) {
         history.push("/login")
     }
+
+
     return (
         <Route
             {...rest}
