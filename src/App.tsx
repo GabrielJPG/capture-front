@@ -5,10 +5,7 @@ import { Home } from './pages/home/Home';
 import { Login } from './pages/login/login';
 import { NoMatchPublic } from './pages/404/public';
 import './assets/sass/style.scss';
-import { ApplicationContext, IApplicationContext } from './contexts/App.Context';
-import { Login } from './pages/login/login';
-import { Home } from './pages/home/Home';
-import { Search } from './pages/search/search';
+import { Search } from './pages/Search/search';
 import {
   BrowserRouter as Router
   , Switch

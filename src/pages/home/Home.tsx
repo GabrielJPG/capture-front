@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 import { Profile, ProfileProccessHeader, ProfileSearchProcsess } from '../Profile';
 import { ProccessHeaderSetting, ProcsessSettings, Settings } from '../Settings';
+import { ProccessHeaderSearch, ProcsessSearch, Search } from '../Search/search';
 
 
 
@@ -46,6 +47,10 @@ export const Home: React.FC = () => {
         '/app/settings': {
             header: <ProccessHeaderSetting />,
             search: <ProcsessSettings />,
+        },
+        '/app/Search': {
+            header: <ProccessHeaderSearch />,
+            search: <ProcsessSearch />,
         }
     } as any
     let render = pages[useLocation().pathname]
@@ -66,6 +71,7 @@ export const Home: React.FC = () => {
             <AuthRoute path={`${section}/settings`} component={Settings} />
             <AuthRoute path={`${section}/qr-document`} component={qrDocument} />
             <AuthRoute path={`${section}/profile`} component={Profile} />
+            <AuthRoute path={`${section}/search`} component={Search} />
             <AuthRoute path={`${section}/*`}>
                 <NoMatch />
             </AuthRoute>
