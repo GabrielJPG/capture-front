@@ -1,0 +1,22 @@
+.c-expedient-box {
+    background: #FBFBFB;
+    padding: 3rem;
+    border: 1px solid #DAE1EF;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    top: 5rem;
+    opacity: 0;
+    transition: all .2s;
+    & hr {
+        border: 1px solid #dae1ef61;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+    }
+    &.js-eb-show {
+        top: 15rem;
+        opacity: 1;
+    }
+}

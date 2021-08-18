@@ -22,7 +22,7 @@
         display: inline-block;
         border-radius: 100rem;
         transition: all .2s;
-        position: absolute;
+        position: relative;
     }
     &:hover {
         transform: translateY(-0.3rem);
@@ -376,4 +376,22 @@
     padding: 1rem 2rem;
     font-size: 1.5rem;
     text-transform: capitalize;
+}
+
+
+/*--------------------------------------------*/
+
+
+/*              BTN FILTER SEARCH             */
+
+
+/*--------------------------------------------*/
+
+.btn.btn-filter-search {
+    padding: 1.5rem 4rem;
+    font-size: 1.3rem;
+    z-index: 1;
+    position: absolute;
+    top: 0.7rem;
+    right: 0.9rem;
 }

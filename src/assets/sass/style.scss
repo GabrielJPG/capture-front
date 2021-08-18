@@ -1,16 +1,26 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap);
+
 /*--------------------------------------------*/
+
+
 /* **************  BASE   ******************  */
+
+
 /*--------------------------------------------*/
+
 @import "base/base";
 @import "base/typography";
 @import "base/mixins";
 @import "base/animations";
 
+/*--------------------------------------------*/
+
+
+/* ************* COMPONENTS  **************** */
+
 
 /*--------------------------------------------*/
-/* ************* COMPONENTS  **************** */
-/*--------------------------------------------*/
+
 @import "components/buttons";
 @import "components/sideprocess";
 @import "components/searchbar";
@@ -32,42 +42,63 @@
 @import "components/document-bag";
 @import "components/thumbnail-viewer";
 @import "components/qr-check";
-
+@import "components/expedient";
 
 /*--------------------------------------------*/
+
+
 /* ***************    WIDGETS  *************  */
+
+
 /*--------------------------------------------*/
+
 @import "widgets/fullscreen";
 @import "widgets/scanneradvancedoption";
 @import "widgets/sendprocess";
 @import "widgets/progressbar";
 @import "widgets/language";
 
-
-
 /*--------------------------------------------*/
+
+
 /* *************** LAYOUT  ****************** */
+
+
 /*--------------------------------------------*/
+
 @import "layout/grid";
 @import "layout/header";
 @import "layout/navigation";
 @import "layout/workspace";
 
+/*--------------------------------------------*/
+
+
+/* ************** PAGES ********************* */
+
 
 /*--------------------------------------------*/
-/* ************** PAGES ********************* */
-/*--------------------------------------------*/
+
 @import "pages/home";
 @import "pages/login";
 @import "pages/indexing-sample";
 
 /*--------------------------------------------*/
+
+
 /* ************ ILUSTRATION ***************** */
+
+
 /*--------------------------------------------*/
+
 @import "ilustration/instruction";
 
+/*--------------------------------------------*/
+
+
+/* ****** UTILITIES ALWAYS ON BOTTOM ******** */
+
 
 /*--------------------------------------------*/
-/* ****** UTILITIES ALWAYS ON BOTTOM ******** */
-/*--------------------------------------------*/
+
 @import "base/utilities";
