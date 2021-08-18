@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 import { Profile, ProfileProccessHeader, ProfileSearchProcsess } from '../Profile';
 import { ProccessHeaderSetting, ProcsessSettings, Settings } from '../Settings';
-import { ProccessHeaderSearch, ProcsessSearch, Search } from '../Search/search';
+import { ProccessHeaderSearch, ProcsessSearch, Search } from '../search/search';
 
 
 
@@ -48,7 +48,7 @@ export const Home: React.FC = () => {
             header: <ProccessHeaderSetting />,
             search: <ProcsessSettings />,
         },
-        '/app/Search': {
+        '/app/search': {
             header: <ProccessHeaderSearch />,
             search: <ProcsessSearch />,
         }

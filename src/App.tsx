@@ -5,7 +5,7 @@ import { Home } from './pages/home/Home';
 import { Login } from './pages/login/login';
 import { NoMatchPublic } from './pages/404/public';
 import './assets/sass/style.scss';
-import { Search } from './pages/Search/search';
+import { Search } from './pages/search/search';
 import {
   BrowserRouter as Router
   , Switch
