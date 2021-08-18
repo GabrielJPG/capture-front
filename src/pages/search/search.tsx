@@ -1,16 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import LogoImage from '../../assets/img/logo.png';
 import { AppLogo } from "../../shared/app-logo";
 
 
 export const ProcsessSearch: React.FC = (props) => {
     return <div className="process">
         <AppLogo />
-        {/* <span className="logo-container">
-            <img src={LogoImage} alt="" className="logo-container__logo" />
-            Front Capture
-        </span> */}
     </div>
 }
 
@@ -40,9 +35,11 @@ export const Search: React.FC = (props) => {
                 <div className="c-search-filter">
                     <input type="text" placeholder="Digite el numero de expediente" className="c-search-filter__input" />
                     <FontAwesomeIcon className="c-search-filter__icon" icon={faSearch} />
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a href="#" className="btn btn-primary btn-animate btn-filter-search" >Buscar</a>
                 </div>
 
+                {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
                 <iframe className="w-100 h-50" src="http://demo.prodoctivity.info/anim/SearchDocument.html" frameBorder="0" ></iframe>
                 {/* Apply " js-eb-show " class to expedient-box component to show it */}
                 <div className="c-expedient-box">
@@ -63,6 +60,8 @@ export const Search: React.FC = (props) => {
                         </div>
                     </div>
                     <p className="mb-5 mt-4 text-center u-color-primary">Escane el documento que desea agregar al expediente</p>
+
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a href="#" className="btn btn-primary btn-animate u-size-normal m-auto">Escanear</a>
                 </div>
             </div>
