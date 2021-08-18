@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faFolder, faClock, faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faFolder, faClock, faFilter, faUser, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 import LogoImage from '../../assets/img/logo.png';
 
@@ -59,19 +59,13 @@ export const FileSearchProcess: React.FC = (props) => {
                     </div>
                     <div className="c-process-info__content">
                         <div className="c-process-info__name">
-                            <span className="tooltip">
-
-                                <i className="fas fa-user c-process-info__icon c-process-info__icon--user"></i>
-
-                                <span className="tooltip-text tooltip-text--client">
-                                    Cliente
-                                </span>
-                            </span>
+                            <FontAwesomeIcon icon={faUser} className="c-process-info__icon c-process-info__icon--user"/>
                             Juan Medina Carvajal
                         </div>
                         <div className="c-process-info__bottom">
                             <div className="c-process-info__owner">
                                 <label className="label">Creado por: Juan Peréz</label>
+                                <FontAwesomeIcon icon={faInfoCircle} className="tooltip__icon ml-2"/>
                                 <span className="tooltip tooltip--owner">
                                     <i className="fas fa-info-circle tooltip__icon"></i>
                                     <span className="tooltip-text tooltip-text--owner">

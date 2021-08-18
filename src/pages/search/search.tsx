@@ -18,7 +18,6 @@ export const ProccessHeaderSearch: React.FC = (props) => {
     return (
         <div className="process-header">
             <div className="process-header--layout__header">
-
                 <h2 className="primary-heading">Settings</h2>
                 <div className="process-header--layout__name u-no-margin">
                 </div>
@@ -27,7 +26,6 @@ export const ProccessHeaderSearch: React.FC = (props) => {
                 <div className="process-header__name">
                     <span className="name"></span>
                     <span className="number"></span>
-
                 </div>
             </div>
         </div>
@@ -43,7 +41,6 @@ export const Search: React.FC = (props) => {
                     <input type="text" placeholder="Digite el numero de expediente" className="c-search-filter__input"/>
                     <FontAwesomeIcon className="c-search-filter__icon" icon={faSearch} />
                     <a href="#" className="btn btn-primary btn-animate btn-filter-search" >Buscar</a>
-                   
                 </div>
                 
                 <iframe className="w-100 h-50" src="http://demo.prodoctivity.info/anim/SearchDocument.html" frameBorder="0" ></iframe>
@@ -71,8 +68,4 @@ export const Search: React.FC = (props) => {
             </div>
         </div>
     )
-            
-            
-       
-    
 }
