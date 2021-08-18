@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faFolder, faClock, faFilter, faUser, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-
+import ReactTooltip from 'react-tooltip';
 import LogoImage from '../../assets/img/logo.png';
 
 export const FilesPage: React.FC = (props) => {
@@ -50,7 +50,7 @@ export const FileSearchProcess: React.FC = (props) => {
         </div>
 
         <div className="process__wrapper">
-            <div className="process__content u-hidden-scroll">
+            <div className="process__content">
                 {/* Componente que desplieaa los procesos */}
                 <div className="c-process-info is-ontime is-active">
                     <div className="c-process-info__title">
@@ -65,14 +65,9 @@ export const FileSearchProcess: React.FC = (props) => {
                         <div className="c-process-info__bottom">
                             <div className="c-process-info__owner">
                                 <label className="label">Creado por: Juan Peréz</label>
-                                <FontAwesomeIcon icon={faInfoCircle} className="tooltip__icon ml-2"/>
-                                <span className="tooltip tooltip--owner">
-                                    <i className="fas fa-info-circle tooltip__icon"></i>
-                                    <span className="tooltip-text tooltip-text--owner">
-                                        Email: juanperez@gmail.com<br />
-                                        Teléfono: 849-0789-0465
-                                    </span>
-                                </span>
+                                <FontAwesomeIcon icon={faInfoCircle} className="tooltip__icon ml-2 "
+                                data-tip="Email: juanperez@gmail.com<br/>Teléfono: 849-0789-0465" data-html={true} data-for='owner'/>
+                                <ReactTooltip id="owner" place="top" type="dark" effect="solid"/>
                             </div>
                             <div className="c-process-info__date">
                                 <div className="date">
@@ -82,27 +77,23 @@ export const FileSearchProcess: React.FC = (props) => {
                                     <i><FontAwesomeIcon icon={faClock} /></i><span className="info-date">12:56 pm</span>
                                 </div>
                             </div>
-                            <span className="tooltip">
-                                <div className="process-count">
-                                    <span className="process-count__amount">3/9</span>
-                                    {/* This circler image replace for same component */}
-                                    <svg viewBox="0 0 36 36" className="process-count__chart">
-                                        <path className="process-count__circle" stroke-dasharray="30, 100" d="M18 2.0845
-                                        a 15.9155 15.9155 0 0 1 0 31.831
-                                        a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    </svg>
-                                    {/* To Here */}
-                                </div>
-                                <span className="tooltip-text">
-                                    Faltan 6 documentos para completar los 9 requeridos.
-                                </span>
-                            </span>
+                            <div className="process-count">
+                                <span className="process-count__amount" data-tip="Faltan 6 documentos para <br>completar los 9 requeridos" data-html={true} data-for='count'>3/9</span>
+                                <ReactTooltip id="count" place="top" type="dark" effect="solid"/>
+                                {/* This circler image replace for same component */}
+                                <svg viewBox="0 0 36 36" className="process-count__chart" >
+                                    <path className="process-count__circle" stroke-dasharray="30, 100" d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                {/* To Here */}
+                            </div>
                         </div>
                     </div>
+                    <div className="c-process-info__state" data-tip="Vence en 3 días, 7 horas y 23 minutos" data-html={true} data-for='timeLeft'></div>
+                    <ReactTooltip id="timeLeft" place="right" type="dark" effect="solid"/>
                     <span className="tooltip tooltip--state ">
-                        <div className="c-process-info__state  ">
-
-                        </div>
+                        
                         <span className="tooltip-text tooltip-text--state">
                             Vence en 3 días, 7 horas y 23 minutos
                         </span>

@@ -1,18 +1,23 @@
 /*--------------------------------------------*/
+
+
 /*           PROCESS WORKSPACE CONTAINER          */
+
+
 /*--------------------------------------------*/
-.process-workspace{
+
+.process-workspace {
     background: white;
     margin: 1.5rem 1rem 1rem 0px;
     padding: 3rem;
     border-radius: 1.5rem;
     box-shadow: $shadow;
     position: relative;
-
-    &__content{
+    height: 100%;
+    &__content {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
         gap: 2rem;
-        grid-template-rows: 1fr; 
+        grid-template-rows: 1fr;
     }
 }

@@ -35,7 +35,7 @@ export const ProccessHeaderSearch: React.FC = (props) => {
 export const Search: React.FC = (props) => {
     return(
         <div className="align-content-center d-flex h-100 justify-content-center process-workspace">
-            <div className="u-mt-10 w-50 position-relative">
+            <div className="mt-5 w-50 position-relative">
                 <h3 className="secondary-heading text-center u-text-color u-size-2 mb-5">Búsqueda de expediente</h3>
                 <div className="c-search-filter">
                     <input type="text" placeholder="Digite el numero de expediente" className="c-search-filter__input"/>
