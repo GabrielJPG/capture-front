@@ -19,6 +19,8 @@ export const Home: React.FC = () => {
     const history = useHistory();
     const routes = useLocation();
 
+
+
     const pages = {
         '/app/home': {
             header: <ProccessHeader />,
@@ -53,6 +55,8 @@ export const Home: React.FC = () => {
             search: <ProcsessSearch />,
         }
     } as any
+
+
     let render = pages[useLocation().pathname]
 
     if (!render) {

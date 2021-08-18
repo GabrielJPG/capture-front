@@ -18,5 +18,9 @@
     "UserProfile": "User Profile",
     "YouNotLogged": "You must be logged in to access this page.",
     "ExpiredAt": "Expire in {days} day(s), {hours} hour(s) and {minutes} minute(s)",
-    "PendingProcessLabel": "{presents} document (s) are missing to complete the {required} required"
+    "PendingProcessLabel": "{presents} document (s) are missing to complete the {required} required",
+    "CreatedBy": "Created by : ",
+    "EMail": "Email : ",
+    "PhoneNumber": "Phone : ",
+    "Client": "Client : "
 }

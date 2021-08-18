@@ -1,11 +1,17 @@
 import dayjs from 'dayjs';
+import ReactTooltip from 'react-tooltip';
 import { ApplicationContext } from '../../../contexts/App.Context';
-import { faCalendar, faClock, faFolder, faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCalendar,
+    faClock,
+    faFolder,
+    faInfoCircle,
+    faUser
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ProgressBar } from './ring-progressBar';
 import { useContext } from 'react';
 import 'react-circular-progressbar/dist/styles.css';
-import ReactTooltip from 'react-tooltip';
-import { ProgressBar } from './ring-progressBar';
 
 export type CardInfo = {
     processId: number
@@ -23,25 +29,37 @@ export type CardInfo = {
 
 export type CardProps = {
     cardInfo: CardInfo,
-    onClick: (processId: number) => void
+    onClick: (processId: number) => void;
+    isActive: boolean;
 }
+
+type ProcessStatus = 'is-ontime' | 'has-expired' | 'is-expiring' | '';
 
 export const ProcessCard: React.FC<CardProps> = (props) => {
     const { translate } = useContext(ApplicationContext);
-    const { onClick, cardInfo } = props
+    const { onClick, cardInfo, isActive } = props;
 
+    const timeLet = getDifference(dayjs(cardInfo.creationDate), dayjs(cardInfo.expiryDate))
+
+    let statusClass: ProcessStatus = '';
+    if (timeLet.days > 3) {
+        statusClass = "is-ontime"
+    } else if (timeLet.days >= 0 && timeLet.days < 3) {
+        statusClass = "is-expiring"
+    } else {
+        statusClass = "has-expired"
+    }
 
 
     const expiredDateTooltip = () => {
         const label = translate("ExpiredAt")
-        const since = getDifference(dayjs(cardInfo.creationDate), dayjs(cardInfo.expiryDate))
-        return label.replace('{days}', since.days.toString())
-            .replace('{hours}', since.hours.toString())
-            .replace('{minutes}', since.minutes.toString())
-            .replace('{seconds}', since.seconds.toString())
+        return label.replace('{days}', timeLet.days.toString())
+            .replace('{hours}', timeLet.hours.toString())
+            .replace('{minutes}', timeLet.minutes.toString())
+            .replace('{seconds}', timeLet.seconds.toString())
     }
 
-    return <div className="c-process-info is-ontime is-active" onClick={() => onClick(cardInfo.processId)}>
+    return <div className={`c-process-info ${statusClass} ${isActive && 'is-active'}`} onClick={() => onClick(cardInfo.processId)}>
         <div className="c-process-info__title">
             <i className="c-process-info__icon"><FontAwesomeIcon icon={faFolder} /></i>
             {cardInfo.processName}
