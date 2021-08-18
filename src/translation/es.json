@@ -1,10 +1,22 @@
 {
+    "CloseSession": "Cerrar sesión",
     "English": "Ingles",
+    "FindProcess": "Buscar Proceso",
     "French": "Frances",
     "Login": "Entrar",
+    "Logout": "Salir",
+    "NotMatch": "No se encontro la ruta ",
     "Password": "Contraseña",
     "PasswordRecovery": "¿Olvidó su contraseña?",
+    "PendingDocumentHeader": "Procesos con documentos faltantes",
     "Portuguese": "Portugues",
+    "Profile": "Perfil",
+    "RouteNotFound": "No se encontro la ruta",
+    "SelectDocumentToContinueHeader": "Seleccione el proceso para completar los documentos",
     "Spanish": "Español",
-    "Username": "Usuario"
+    "Username": "Usuario",
+    "UserProfile": "Perfil de usuario",
+    "YouNotLogged": "Debes de iniciar session para poder ver esta pagina.",
+    "ExpiredAt": "Vence en {days} día(s), {hours} hora(s) y {minutes} minuto(s)",
+    "PendingProcessLabel": "Faltan {presents} documento(s) para completar los {required} requeridos"
 }

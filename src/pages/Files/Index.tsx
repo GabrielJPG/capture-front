@@ -1,7 +1,52 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faFolder, faClock, faFilter } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom';
+import { AppLogo } from '../../shared/app-logo';
+import { CardInfo } from './components/ProcessCard';
+import { ResultSearchPanel } from './components/ResultSearchPanel';
+import { SearchBox } from './components/SearchBox';
+import { SearchBoxHeader } from './components/SearchBoxHeader';
 
-import LogoImage from '../../assets/img/logo.png';
+
+const data: Array<CardInfo> = [
+    {
+        processId: 1234,
+        processName: 'Solicitud de préstamo Hipotecario comercial',
+        clientName: 'Juan Medina Carvajal',
+        creatorName: 'Juan Peréz',
+        creatorEmail: 'juanperez@gmail.com',
+        creatorPhone: '+569-8-939-8982',
+        creationDate: new Date('2018-10-10T15:30:00').toISOString(),
+        expiryDate: new Date('2018-10-15T17:50:45').toISOString(),
+        status: 'Pendiente',
+        processDocumentRequirement: 9,
+        currentDocumentInProcess: 3,
+    },
+    {
+        processId: 1235,
+        processName: 'Solicitud de préstamo Hipotecario comercial',
+        clientName: 'Juan Medina Carvajal',
+        creatorName: 'Juan Peréz',
+        creatorEmail: 'juanperez@gmail.com',
+        creatorPhone: '+569-8-939-8982',
+        creationDate: new Date('2018-10-10T15:30:00').toISOString(),
+        expiryDate: new Date('2018-10-15T17:50:45').toISOString(),
+        status: 'Pendiente',
+        processDocumentRequirement: 9,
+        currentDocumentInProcess: 3,
+    },
+    {
+        processId: 1236,
+        processName: 'Solicitud de préstamo Hipotecario comercial',
+        clientName: 'Juan Medina Carvajal',
+        creatorName: 'Juan Peréz',
+        creatorEmail: 'juanperez@gmail.com',
+        creatorPhone: '+569-8-939-8982',
+        creationDate: new Date('2018-10-10T15:30:00').toISOString(),
+        expiryDate: new Date('2018-10-15T17:50:45').toISOString(),
+        status: 'Pendiente',
+        processDocumentRequirement: 9,
+        currentDocumentInProcess: 3,
+    }
+]
 
 export const FilesPage: React.FC = (props) => {
     return <div className="process-workspace">
@@ -10,6 +55,7 @@ export const FilesPage: React.FC = (props) => {
 }
 
 export const FileProcessHeader: React.FC = (props) => {
+
     return (
         <div className="process-header">
             <div className="process-header--layout__header">
@@ -29,129 +75,17 @@ export const FileProcessHeader: React.FC = (props) => {
     )
 }
 
-
 export const FileSearchProcess: React.FC = (props) => {
+    const history = useHistory();
+
+    const onCardClick = (processId: number) => {
+        history.push(`files/${processId}`);
+    }
+
     return <div className="process">
-        <span className="logo-container">
-            <img src={LogoImage} alt="" className="logo-container__logo" />
-            Front Capture
-        </span>
-
-        {/* Esto session de aqui debe ser un componente dinamico injectable */}
-        <div className="process__heading">
-            <span className="process__amount">0</span>
-            <h3 className="secondary-heading">Procesos con documentos faltantes </h3>
-            <h4 className="tertiary-heading">Seleccione para completar documentos</h4>
-        </div>
-
-        <div className="c-search-box">
-            <input type="text" placeholder="Buscar Proceso" className="c-search-box__input" />
-            <i className=" c-search-box__filter"><FontAwesomeIcon icon={faFilter} /></i>
-        </div>
-
-        <div className="process__wrapper">
-            <div className="process__content u-hidden-scroll">
-                {/* Componente que desplieaa los procesos */}
-                <div className="c-process-info is-ontime is-active">
-                    <div className="c-process-info__title">
-                        <i className="c-process-info__icon"><FontAwesomeIcon icon={faFolder} /></i>
-                        Solicitud de préstamo Hipotecario comercial
-                    </div>
-                    <div className="c-process-info__content">
-                        <div className="c-process-info__name">
-                            <span className="tooltip">
-
-                                <i className="fas fa-user c-process-info__icon c-process-info__icon--user"></i>
-
-                                <span className="tooltip-text tooltip-text--client">
-                                    Cliente
-                                </span>
-                            </span>
-                            Juan Medina Carvajal
-                        </div>
-                        <div className="c-process-info__bottom">
-                            <div className="c-process-info__owner">
-                                <label className="label">Creado por: Juan Peréz</label>
-                                <span className="tooltip tooltip--owner">
-                                    <i className="fas fa-info-circle tooltip__icon"></i>
-                                    <span className="tooltip-text tooltip-text--owner">
-                                        Email: juanperez@gmail.com<br />
-                                        Teléfono: 849-0789-0465
-                                    </span>
-                                </span>
-                            </div>
-                            <div className="c-process-info__date">
-                                <div className="date">
-                                    <i><FontAwesomeIcon icon={faCalendar} /></i><span className="info-date">12/02/2020</span>
-                                </div>
-                                <div className="hour">
-                                    <i><FontAwesomeIcon icon={faClock} /></i><span className="info-date">12:56 pm</span>
-                                </div>
-                            </div>
-                            <span className="tooltip">
-                                <div className="process-count">
-                                    <span className="process-count__amount">3/9</span>
-                                    {/* This circler image replace for same component */}
-                                    <svg viewBox="0 0 36 36" className="process-count__chart">
-                                        <path className="process-count__circle" stroke-dasharray="30, 100" d="M18 2.0845
-                                        a 15.9155 15.9155 0 0 1 0 31.831
-                                        a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    </svg>
-                                    {/* To Here */}
-                                </div>
-                                <span className="tooltip-text">
-                                    Faltan 6 documentos para completar los 9 requeridos.
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                    <span className="tooltip tooltip--state ">
-                        <div className="c-process-info__state  ">
-
-                        </div>
-                        <span className="tooltip-text tooltip-text--state">
-                            Vence en 3 días, 7 horas y 23 minutos
-                        </span>
-                    </span>
-                </div>
-                {/* Hasta aqui  */}
-            </div>
-            {/* Esto es una animacion dinamica y debe de ocultarse a demanda */}
-            <div className="preloader">
-                <div className="process-placeholder">
-                    <div className="process-placeholder__title"></div>
-                    <div className="process-placeholder__user"></div>
-                    <div className="process-placeholder__owner"></div>
-                    <div className="process-placeholder__date">
-                        <div className="placeholder__date"></div>
-                        <div className="placeholder__date"></div>
-                    </div>
-                    <div className="process-placeholder__count"></div>
-                </div>
-                <div className="process-placeholder">
-                    <div className="process-placeholder__title"></div>
-                    <div className="process-placeholder__user"></div>
-                    <div className="process-placeholder__owner"></div>
-                    <div className="process-placeholder__date">
-                        <div className="placeholder__date"></div>
-                        <div className="placeholder__date"></div>
-                    </div>
-                    <div className="process-placeholder__count"></div>
-                </div>
-                <div className="process-placeholder">
-                    <div className="process-placeholder__title"></div>
-                    <div className="process-placeholder__user"></div>
-                    <div className="process-placeholder__owner"></div>
-                    <div className="process-placeholder__date">
-                        <div className="placeholder__date"></div>
-                        <div className="placeholder__date"></div>
-                    </div>
-                    <div className="process-placeholder__count"></div>
-                </div>
-            </div>
-            {/* La animacion llega hasta aqui */}
-        </div>
-        {/* Hasta aqui */}
-
+        <AppLogo />
+        <SearchBoxHeader pendingDocuments={0} />
+        <SearchBox />
+        <ResultSearchPanel processData={data} onClick={(id) => onCardClick(id)} />
     </div>
 }

@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { ApplicationContext } from "../../contexts/App.Context"
-import LogoImage from '../../assets/img/logo.png';
+import { AppLogo } from "../../shared/app-logo";
 
 export const Profile: React.FC = (props) => {
     const { session } = useContext(ApplicationContext)
@@ -15,11 +15,12 @@ export const Profile: React.FC = (props) => {
 }
 
 export const ProfileProccessHeader: React.FC = (props) => {
+    const { translate } = useContext(ApplicationContext);
     return (
         <div className="process-header">
             <div className="process-header--layout__header">
 
-                <h2 className="primary-heading">User Profile</h2>
+                <h2 className="primary-heading">{translate("UserProfile")}</h2>
                 <div className="process-header--layout__name u-no-margin">
                 </div>
             </div>
@@ -36,9 +37,6 @@ export const ProfileProccessHeader: React.FC = (props) => {
 
 export const ProfileSearchProcsess: React.FC = (props) => {
     return <div className="process">
-        <span className="logo-container">
-            <img src={LogoImage} alt="" className="logo-container__logo" />
-            Front Capture
-        </span>
+        <AppLogo />
     </div>
 }

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Route, useHistory } from 'react-router-dom'
+import { ApplicationContext } from '../contexts/App.Context';
 import { useProvideAuth } from '../hooks/Auth-hooks'
 import { useNotify } from '../hooks/Notification-hook';
 
@@ -14,9 +15,10 @@ export const AuthRoute = ({
     const auth = useProvideAuth();
     const history = useHistory();
     const notify = useNotify('error');
+    const { translate } = useContext(ApplicationContext);
 
     if (!auth.isAuth) {
-        notify.show('You must be logged in to access this page.');
+        notify.show(translate("YouNotLogged"));
         history.push("/login")
     }
 

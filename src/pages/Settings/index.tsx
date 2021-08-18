@@ -1,14 +1,11 @@
 
-import LogoImage from '../../assets/img/logo.png';
+import { AppLogo } from '../../shared/app-logo';
 
 export const Settings: React.FC = () => <div className="process-workspace">Settings</div>
 
 export const ProcsessSettings: React.FC = (props) => {
     return <div className="process">
-        <span className="logo-container">
-            <img src={LogoImage} alt="" className="logo-container__logo" />
-            Front Capture
-        </span>
+        <AppLogo />
     </div>
 }
 

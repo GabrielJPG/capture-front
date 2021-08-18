@@ -63,6 +63,7 @@ export const Home: React.FC = () => {
             <AuthRoute path={`${section}/home`} exact component={EmptyHomePage} />
             <AuthRoute path={`${section}/documents`} component={Documents} />
             <AuthRoute path={`${section}/files`} component={FilesPage} />
+            <AuthRoute path={`${section}/files/:id`} component={FilesPage} />
             <AuthRoute path={`${section}/settings`} component={Settings} />
             <AuthRoute path={`${section}/qr-document`} component={qrDocument} />
             <AuthRoute path={`${section}/profile`} component={Profile} />

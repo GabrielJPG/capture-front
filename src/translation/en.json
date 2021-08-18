@@ -1,10 +1,22 @@
 {
+    "CloseSession": "Close Session",
     "English": "English",
+    "FindProcess": "Find Process",
     "French": "French",
     "Login": "Login",
+    "Logout": "Logout",
+    "NotMatch": "Not match path for",
     "Password": "Password",
     "PasswordRecovery": "Forgot your password ?",
+    "PendingDocumentHeader": "Processes with missing documents",
     "Portuguese": "Portuguese",
+    "Profile": "Profile",
+    "RouteNotFound": "Route not found",
+    "SelectDocumentToContinueHeader": "Select the process to complete the documents",
     "Spanish": "Spanish",
-    "Username": "Username"
+    "Username": "Username",
+    "UserProfile": "User Profile",
+    "YouNotLogged": "You must be logged in to access this page.",
+    "ExpiredAt": "Expire in {days} day(s), {hours} hour(s) and {minutes} minute(s)",
+    "PendingProcessLabel": "{presents} document (s) are missing to complete the {required} required"
 }
