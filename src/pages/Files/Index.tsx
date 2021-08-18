@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { AppLogo } from '../../shared/app-logo';
 import { CardInfo } from './components/ProcessCard';
