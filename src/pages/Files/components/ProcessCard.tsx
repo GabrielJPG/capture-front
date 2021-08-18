@@ -1,10 +1,10 @@
 import dayjs from 'dayjs';
 import { ApplicationContext } from '../../../contexts/App.Context';
-import { CircularProgressbar } from 'react-circular-progressbar';
 import { faCalendar, faClock, faFolder } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
 import 'react-circular-progressbar/dist/styles.css';
+import { ProgressBar } from './ring-progressBar';
 
 export type CardInfo = {
     processId: number
@@ -29,11 +29,7 @@ export const ProcessCard: React.FC<CardProps> = (props) => {
     const { translate } = useContext(ApplicationContext);
     const { onClick, cardInfo } = props
 
-    const buildToolTips = (presents: number, required: number) => {
-        const label = translate('PendingProcessLabel')
-        return label.replace('{presents}', presents.toString())
-            .replace('{required}', required.toString())
-    }
+
 
     const expiredDateTooltip = () => {
         const label = translate("ExpiredAt")
@@ -80,7 +76,8 @@ export const ProcessCard: React.FC<CardProps> = (props) => {
                         <i><FontAwesomeIcon icon={faClock} /></i><span className="info-date">{dayjs(cardInfo.creationDate).format('hh:mm:ss')}</span>
                     </div>
                 </div>
-                <span className="tooltip">
+                <ProgressBar cardInfo={cardInfo} />
+                {/* <span className="tooltip">
                     <div className="process-count">
                         <CircularProgressbar
                             value={cardInfo.currentDocumentInProcess} maxValue={cardInfo.processDocumentRequirement}
@@ -90,7 +87,7 @@ export const ProcessCard: React.FC<CardProps> = (props) => {
                     <span className="tooltip-text">
                         {buildToolTips(cardInfo.currentDocumentInProcess, cardInfo.processDocumentRequirement)}
                     </span>
-                </span>
+                </span> */}
             </div>
         </div>
         <span className="tooltip tooltip--state ">
@@ -104,6 +101,7 @@ export const ProcessCard: React.FC<CardProps> = (props) => {
     </div>;
 
 };
+
 
 function getDifference(date1: dayjs.Dayjs, date2: dayjs.Dayjs): { days: number, hours: number, minutes: number, seconds: number } {
     const diff = date2.diff(date1);
