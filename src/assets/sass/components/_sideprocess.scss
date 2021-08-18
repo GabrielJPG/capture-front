@@ -1,71 +1,70 @@
 /*--------------------------------------------*/
+
+
 /*              SIDE PROCESS BAR              */
+
+
 /*--------------------------------------------*/
-.process{
+
+.process {
     padding: 2rem 2rem;
     display: flex;
     flex-direction: column;
     height: 100%;
     padding-right: 0;
-
-    &__heading{
+    &__heading {
         background: $secondary-color-darker;
         padding: 2rem;
         border-top-right-radius: 1.5rem;
         border-top-left-radius: 1.5rem;
-        & h3{
+        & h3 {
             display: inline-block;
             width: 80%
         }
     }
-
-    &__amount{
+    &__amount {
         font-size: 4rem;
         font-weight: 700;
         color: $primary-color;
         margin-right: 1rem;
     }
-    &__wrapper{
+    &__wrapper {
         position: relative;
         flex: 1;
     }
-    &__content{
+    &__content {
         padding: 1rem;
-        overflow-y: scroll;
         border-bottom: 1px solid #d3dbe9;
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        overflow: auto;
+        overflow-y: auto;
     }
-
-    &--layout{
-        grid-row: 1/-1;   
+    &--layout {
+        grid-row: 1/-1;
     }
 }
 
-.logo-container{
+.logo-container {
     display: flex;
     align-items: center;
     font-size: 1.4rem;
     color: $primary-color;
     margin-bottom: 1rem;
     font-weight: 600;
-    &--layout{
+    &--layout {
         margin-bottom: 0;
         background: #e6edf8;
-            border-radius: 0 2rem 0 0;
+        border-radius: 0 2rem 0 0;
     }
-    &__logo{
+    &__logo {
         width: 18rem;
         margin-right: 1rem;
-    
-        &--layout{
+        &--layout {
             width: 15rem;
             margin-left: 2rem;
-            
         }
     }
 }

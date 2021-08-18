@@ -1,39 +1,46 @@
+/*--------------------------------------------*/
+
+
+/*              TYPOGRAPHY                    */
+
 
 /*--------------------------------------------*/
-/*              TYPOGRAPHY                    */
-/*--------------------------------------------*/
-body{
-    font-family: 'Montserrat',Arial, Helvetica, sans-serif;
+
+body {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: $size-normal;
 }
 
-.secondary-heading{
+.secondary-heading {
     font-size: 1.5rem;
     color: $primary-color;
     margin-bottom: 1rem;
     line-height: 2rem;
-
-    &--b{
+    &--b {
         font-size: 1.7rem;
     }
 }
-.secondary-heading-workspace{
+
+.secondary-heading-workspace {
     font-size: 1.8rem;
     margin-bottom: 3rem;
     color: $primary-color-darker;
     width: 100%;
 }
-.tertiary-heading{
+
+.tertiary-heading {
     font-weight: 400;
     color: $primary-color;
     font-size: 1.4rem;
 }
 
-.primary-heading{
+.primary-heading {
     font-size: 2.8rem;
     color: $primary-color;
     font-weight: 600;
 }
-.sub-heading-workspace{
+
+.sub-heading-workspace {
     width: 100%;
     font-weight: 400;
     font-size: 1.5rem;
@@ -41,7 +48,7 @@ body{
     margin: 0.4rem 0 3rem;
 }
 
-.text-info{
+.text-info {
     font-size: 1.4rem;
     margin: 1rem 0rem;
 }

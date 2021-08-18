@@ -5,6 +5,7 @@ import { Home } from './pages/home/Home';
 import { Login } from './pages/login/login';
 import { NoMatchPublic } from './pages/404/public';
 import './assets/sass/style.scss';
+import { Search } from './pages/Search/search';
 import {
   BrowserRouter as Router
   , Switch
@@ -35,7 +36,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route path="/login" component={Login} />
           <Route path="/app" component={Home} />
-          <Route path="/*" component={NoMatchPublic} />
+          <Route path="/search" component={Search} />
         </Switch>
       </Router>
     </ApplicationContext.Provider>
