@@ -3,8 +3,6 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import { useContext } from 'react';
 import { CardInfo } from './ProcessCard';
 
-
-
 export const ProgressBar: React.FC<{ cardInfo: CardInfo; }> = (props) => {
     const { cardInfo } = props;
     const { translate } = useContext(ApplicationContext);

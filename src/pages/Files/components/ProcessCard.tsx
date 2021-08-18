@@ -77,17 +77,6 @@ export const ProcessCard: React.FC<CardProps> = (props) => {
                     </div>
                 </div>
                 <ProgressBar cardInfo={cardInfo} />
-                {/* <span className="tooltip">
-                    <div className="process-count">
-                        <CircularProgressbar
-                            value={cardInfo.currentDocumentInProcess} maxValue={cardInfo.processDocumentRequirement}
-                            text={`${cardInfo.currentDocumentInProcess}/${cardInfo.processDocumentRequirement}`}
-                        />
-                    </div>
-                    <span className="tooltip-text">
-                        {buildToolTips(cardInfo.currentDocumentInProcess, cardInfo.processDocumentRequirement)}
-                    </span>
-                </span> */}
             </div>
         </div>
         <span className="tooltip tooltip--state ">
