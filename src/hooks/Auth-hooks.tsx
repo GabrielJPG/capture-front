@@ -54,6 +54,7 @@ export const useProvideAuth = (): IAuth => {
     const login = (user: string, password: string) => new Promise<void>((resolve) => {
         setTimeout(() => {
             setSession({
+                userId: 1,
                 userName: user,
                 fullName: 'Prodoctivity User',
                 email: 'prodoctivity@prodoctivity@mail.com',

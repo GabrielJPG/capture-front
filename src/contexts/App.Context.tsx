@@ -1,6 +1,7 @@
 import React from "react";
 
 export type Session = {
+    userId: number
     userName: string;
     email: string;
     fullName: string;
@@ -24,6 +25,7 @@ const initialState: IApplicationContext = {
     language: 'es',
     setLanguage: (language: string) => { },
     session: {
+        userId: 0,
         userName: '',
         email: '',
         fullName: '',

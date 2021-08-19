@@ -12,24 +12,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProgressBar } from './ring-progressBar';
 import { useContext } from 'react';
 import 'react-circular-progressbar/dist/styles.css';
+import { CardInfo } from '../../../api/user-work-record';
 
-export type CardInfo = {
-    processId: number
-    processName: string,
-    clientName: string,
-    creatorName: string,
-    creatorEmail: string,
-    creatorPhone: string,
-    creationDate: string,
-    expiryDate: string,
-    status: string,
-    processDocumentRequirement: number,
-    currentDocumentInProcess: number,
-}
 
 export type CardProps = {
     cardInfo: CardInfo,
-    onClick: (processId: number) => void;
+    onClick: (process: CardInfo) => void;
     isActive: boolean;
 }
 
@@ -59,7 +47,7 @@ export const ProcessCard: React.FC<CardProps> = (props) => {
             .replace('{seconds}', timeLet.seconds.toString())
     }
 
-    return <div className={`c-process-info ${statusClass} ${isActive && 'is-active'}`} onClick={() => onClick(cardInfo.processId)}>
+    return <div className={`c-process-info ${statusClass} ${isActive && 'is-active'}`} onClick={() => onClick(cardInfo)}>
         <div className="c-process-info__title">
             <i className="c-process-info__icon"><FontAwesomeIcon icon={faFolder} /></i>
             {cardInfo.processName}
