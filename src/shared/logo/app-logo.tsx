@@ -1,4 +1,4 @@
-import LogoImage from '../assets/img/logo.png';
+import LogoImage from '../../assets/img/logo.png';
 
 export const AppLogo: React.FC = () => {
     return <span className="logo-container">

@@ -1,4 +1,4 @@
-import { AppLogo } from '../../shared/app-logo';
+import { AppLogo } from '../../shared/logo/app-logo';
 
 export const EmptyHomePage: React.FC = (props) => {
     return <div className="process-workspace">

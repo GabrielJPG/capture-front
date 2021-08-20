@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { ApplicationContext } from '../../contexts/App.Context';
-import { AppLogo } from '../../shared/app-logo';
+import { AppLogo } from '../../shared/logo/app-logo';
 import { ResultSearchPanel } from './components/ResultSearchPanel';
 import { SearchBox } from './components/SearchBox';
 import { SearchBoxHeader } from './components/SearchBoxHeader';

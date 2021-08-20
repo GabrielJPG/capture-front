@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { ApplicationContext } from "../../contexts/App.Context";
 import { useNotify } from "../../hooks/Notification-hook";
-import { AppLogo } from "../../shared/app-logo";
+import { AppLogo } from "../../shared/logo/app-logo";
 
 export const NoMatch: React.FC = () => {
     let location = useLocation();

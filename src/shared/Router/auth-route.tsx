@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { Route, useHistory } from 'react-router-dom'
-import { ApplicationContext } from '../contexts/App.Context';
-import { useProvideAuth } from '../hooks/Auth-hooks'
-import { useNotify } from '../hooks/Notification-hook';
+import { ApplicationContext } from '../../contexts/App.Context';
+import { useProvideAuth } from '../../hooks/Auth-hooks'
+import { useNotify } from '../../hooks/Notification-hook';
 
 /*
  * Route wrapper component that extracts route params

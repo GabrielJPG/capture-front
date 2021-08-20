@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { ApplicationContext } from "../../contexts/App.Context"
-import { AppLogo } from "../../shared/app-logo";
+import { AppLogo } from "../../shared/logo/app-logo";
 
 export const Profile: React.FC = (props) => {
     const { session } = useContext(ApplicationContext)

@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { ApplicationContext } from '../contexts/App.Context';
+import { ApplicationContext } from '../../contexts/App.Context';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { MenuSection } from './MenuSection';
-import { useProvideAuth } from '../hooks/Auth-hooks';
+import { MenuSection } from '../Menu/MenuSection';
+import { useProvideAuth } from '../../hooks/Auth-hooks';
 import { Link } from 'react-router-dom';
 
 

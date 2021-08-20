@@ -1,7 +1,6 @@
-import { AuthRoute } from '../../shared/custom-route';
 import { EmptyHomePage, ProccessHeader, SearchProcsess } from '../Dashboard/Index';
 import { FileProcessHeader, FileSearchProcess, FilesPage } from '../Files/Index';
-import { Layout } from '../../shared/Layout';
+import { Layout, AuthRoute } from '../../shared';
 import { NoMatch, ProccessHeader404, Procsess404 } from '../404/private';
 import {
     Switch,

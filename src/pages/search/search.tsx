@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { AppLogo } from "../../shared/app-logo";
+import { AppLogo } from "../../shared/logo/app-logo";
 
 
 export const ProcsessSearch: React.FC = (props) => {

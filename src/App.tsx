@@ -1,7 +1,7 @@
 import i18n from './translation/i18n';
 import React, { useState } from 'react';
 import { ApplicationContext, IApplicationContext, Session } from './contexts/App.Context';
-import { Home } from './pages/home/Home';
+import { Home } from './pages/app';
 import { Login } from './pages/login/login';
 import { NoMatchPublic } from './pages/404/public';
 import './assets/sass/style.scss';

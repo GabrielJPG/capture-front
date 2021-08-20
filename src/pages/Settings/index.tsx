@@ -1,5 +1,5 @@
 
-import { AppLogo } from '../../shared/app-logo';
+import { AppLogo } from '../../shared/logo/app-logo';
 
 export const Settings: React.FC = () => <div className="process-workspace">Settings</div>
 
