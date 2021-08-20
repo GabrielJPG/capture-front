@@ -49,11 +49,11 @@ export interface IAuth {
  * @exports IAuth implemented object
 */
 export const useProvideAuth = (): IAuth => {
-    const { session, setSession, isAuth, setIsAuth } = useContext(ApplicationContext)
+    const context = useContext(ApplicationContext)
     const history = useHistory();
     const login = (user: string, password: string) => new Promise<void>((resolve) => {
         setTimeout(() => {
-            setSession({
+            context.setSession({
                 userId: 1,
                 userName: user,
                 fullName: 'Prodoctivity User',
@@ -61,18 +61,18 @@ export const useProvideAuth = (): IAuth => {
                 expireDate: dayjs().add(1, "days").toDate(),
                 photoProfile: profile,
             })
-            setIsAuth(true);
+            context.setIsAuth(true);
             resolve();
         }, 1000);
     });
     const logout = () => {
-        setSession(null);
-        setIsAuth(false);
+        context.setSession(null);
+        context.setIsAuth(false);
         history.push("/");
     };
     return {
-        isAuth,
-        session,
+        isAuth: context.isAuth,
+        session: context.session,
         login,
         logout
     }

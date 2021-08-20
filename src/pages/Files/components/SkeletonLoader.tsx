@@ -1,3 +1,6 @@
+/**
+ *  Component to load a skeleton
+*/
 
 export const SkeletonLoader: React.FC = (props) => {
     return <div className="preloader">

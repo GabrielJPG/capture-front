@@ -10,22 +10,25 @@ import {
     faCheckCircle,
     faClock
 } from '@fortawesome/free-solid-svg-icons';
-import { CardInfo, DocumentCard, useUserWorkedRecords } from '../../api/user-work-record';
+
 import { useProvideAuth } from '../../hooks/Auth-hooks';
-import { ClipLoader } from 'react-spinners';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+import { search } from '../../utils/search';
+import { useUserWorkedRecords } from '../../hooks/User-work-hooks';
+import { CardInfo } from '../../models/Card-info';
+import { DocumentCard } from '../../models/Document-Card';
 
 export const FilesPage: React.FC = (props) => {
     const { translate } = useContext(ApplicationContext);
     const { getUserRecordById } = useUserWorkedRecords()
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const route = useLocation();
     const { session } = useProvideAuth()
-    const [processDocuments, setProcessDocument] = useState(new Array<any>())
-    let color = "#ffffff";
+    const [processDocuments, setProcessDocument] = useState(new Array<DocumentCard>())
     const routerData: any = route.state;
 
     useEffect(() => {
-
         if (session && routerData) {
             setLoading(true)
             getUserRecordById(session?.userId, routerData.id).then((record) => {
@@ -35,30 +38,51 @@ export const FilesPage: React.FC = (props) => {
         }
     }, [getUserRecordById, session, routerData]);
 
-    return processDocuments.length === 0 ? <div className="process-workspace">{loading ? <ClipLoader color={color} loading={loading} size={150} /> : 'No content select'}</div> : <div className="process-workspace">
-        <div className="process-workspace__heading">
-            <h3 className="secondary-heading-workspace u-no-margin">{translate("MissedDocuments")}</h3>
-            <h3 className="sub-heading-workspace">{translate("CompleteMissedDocuments")}</h3>
-        </div>
-        <div className="process-workspace__content">
-            {processDocuments.filter((x) => x.handle === 0).map((x) => <DocumentCardInfo key={x.id} {...x} />)}
-        </div>
-        <div className="btn-container">
-            <a href="completar.clean.html" className="btn btn-primary btn-animate">{translate("Complete")}</a>
-        </div>
-        <div className="process-workspace__heading">
-            <h3 className="secondary-heading-workspace">{translate("CompleteDocuments")}</h3>
-        </div>
-        <div className="process-workspace__content">
-            {processDocuments.filter((x) => x.handle > 0).map((x) => <DocumentCardInfo key={x.id} {...x} />)}
-        </div>
-    </div>
+    const ProcessContent = (processDocuments: Array<DocumentCard>) => {
+        return (<div className="process-workspace">
+            <div className="process-workspace__heading">
+                <h3 className="secondary-heading-workspace u-no-margin">{translate("MissedDocuments")}</h3>
+                <h3 className="sub-heading-workspace">{translate("CompleteMissedDocuments")}</h3>
+            </div>
+            <div className="process-workspace__content">
+                {processDocuments.filter((x) => x.handle === 0).map((x) => <DocumentCardInfo key={x.handle} {...x} />)}
+            </div>
+            <div className="btn-container">
+                <a href="completar.clean.html" className="btn btn-primary btn-animate">{translate("Complete")}</a>
+            </div>
+            <div className="process-workspace__heading">
+                <h3 className="secondary-heading-workspace">{translate("CompleteDocuments")}</h3>
+            </div>
+            <div className="process-workspace__content">
+                {processDocuments.filter((x) => x.handle > 0).map((x) => <DocumentCardInfo key={x.handle} {...x} />)}
+            </div>
+        </div>)
+    }
+
+    const loadingContent = () => {
+        return (<div className="process-workspace">
+            <Loader
+                type='ThreeDots'
+                color="#0f44a0"
+                height={100}
+                width={100}
+                visible={loading}
+            />
+        </div>)
+    }
+
+    const notContentSelected = () => {
+        return (<div className="process-workspace">No content select</div>)
+    }
+
+    return (processDocuments.length === 0 && !loading) ?
+        notContentSelected() :
+        loading ? loadingContent() : ProcessContent(processDocuments)
 }
 
 
 export const DocumentCardInfo: React.FC<DocumentCard> = (props) => {
     const icon = (props.handle === 0 || props.handle === undefined) ? faClock : faCheckCircle
-    console.log(icon)
     return <div className="c-process-box">
         <div className="c-process-box__title">
             {props.documentTypeName}
@@ -144,25 +168,4 @@ export const FileSearchProcess: React.FC<{ recordId?: number }> = (props) => {
         <SearchBox emitSearchParameter={(value) => setFilterValue(value)} />
         <ResultSearchPanel processData={filterValue !== '' ? search(records, filterProperties, filterValue) : records} onClick={(process) => onCardClick(process)} />
     </div>
-}
-
-/**
- * Global function for filter table and list
- *
- * @param {Array<{T}>} array List of objects to filter
- * @param {string[]} filterFields keywords on apply values
- * @param {string} text filter value
- * @returns {Array<{T}>} List filtered by provide text
- */
-export const search = <T extends {}>(
-    array: Array<T>,
-    filterFields: Array<string>,
-    text: string
-): Array<T> => {
-    text = text.toLowerCase()
-    return array.filter(function (row) {
-        return filterFields.some(function (value) {
-            return (row as any)[value].toString().toLowerCase().indexOf(text) !== -1
-        })
-    })
 }

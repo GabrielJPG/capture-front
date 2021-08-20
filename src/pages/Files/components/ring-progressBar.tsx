@@ -2,8 +2,12 @@ import { ApplicationContext } from '../../../contexts/App.Context';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { useContext } from 'react';
 import ReactTooltip from 'react-tooltip';
-import { CardInfo } from '../../../api/user-work-record';
+import { CardInfo } from '../../../models/Card-info';
 
+/** 
+ *  Component for rendering a progress bar for a file
+ * @exports ProgressBar
+*/
 export const ProgressBar: React.FC<{ cardInfo: CardInfo; }> = (props) => {
     const { cardInfo } = props;
     const { translate } = useContext(ApplicationContext);

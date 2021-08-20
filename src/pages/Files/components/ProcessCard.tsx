@@ -12,7 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProgressBar } from './ring-progressBar';
 import { useContext } from 'react';
 import 'react-circular-progressbar/dist/styles.css';
-import { CardInfo } from '../../../api/user-work-record';
+import { CardInfo } from '../../../models/Card-info';
+
 
 
 export type CardProps = {

@@ -1,27 +1,5 @@
-export type CardInfo = {
-    processId: number
-    processName: string,
-    clientName: string,
-    creatorName: string,
-    creatorEmail: string,
-    creatorPhone: string,
-    creationDate: string,
-    expiryDate: string,
-    status: string,
-    processDocumentRequirement: number,
-    currentDocumentInProcess: number,
-}
-
-export type DocumentCard = {
-    documentTypeId: number,
-    process: number,
-    handle?: number,
-    documentTypeName: string,
-    client: string,
-    type: 'Solicitante' | 'Other'
-}
-
-
+import { CardInfo } from "../models/Card-info";
+import { DocumentCard } from "../models/Document-Card";
 
 export const data: Array<CardInfo> = [
     {
@@ -119,10 +97,7 @@ export const simulateCRMData: Array<DocumentCard> = [
     }
 ]
 
-export interface IUserWorkRecord {
-    getUserWorkRecordsCards(): Promise<Array<CardInfo>>;
-    getUserRecordById: (userId: number, processId: number) => Promise<Array<DocumentCard>>;
-}
+
 
 
 export const getUserWorkRecordsCards = () => new Promise<Array<CardInfo>>((resolve, reject) => {
@@ -136,11 +111,3 @@ export const getUserRecordById = (userId: number, processId: number) => new Prom
         resolve(simulateCRMData.filter(item => item.process === processId))
     }, 1000);
 })
-
-
-export const useUserWorkedRecords = (): IUserWorkRecord => {
-    return {
-        getUserWorkRecordsCards,
-        getUserRecordById,
-    }
-}

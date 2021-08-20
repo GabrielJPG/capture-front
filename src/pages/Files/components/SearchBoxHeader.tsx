@@ -1,7 +1,9 @@
 import { useContext } from 'react';
 import { ApplicationContext } from '../../../contexts/App.Context';
 
-
+/**
+ * Use this component to render the header of the search box
+*/
 export const SearchBoxHeader: React.FC<{ pendingDocuments: number; }> = (props) => {
     const { translate } = useContext(ApplicationContext);
     const { pendingDocuments } = props;

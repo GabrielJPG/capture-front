@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import { CardInfo } from '../../../api/user-work-record';
+import { CardInfo } from '../../../models/Card-info';
+
 import { ProcessCard } from './ProcessCard';
 import { SkeletonLoader } from './SkeletonLoader';
 
