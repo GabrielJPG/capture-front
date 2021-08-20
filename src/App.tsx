@@ -1,5 +1,4 @@
-import i18n from './translation/i18n';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ApplicationContext, IApplicationContext, Session } from './contexts/App.Context';
 import { Home } from './pages/app';
 import { Login } from './pages/login/login';
@@ -12,22 +11,21 @@ import {
 } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLanguage } from './hooks/language-hook';
 
 function App() {
-  const [lang, setLang] = useState('es');
   const [session, setSession] = useState(null as Session | null);
   const [isAuth, setIsAuth] = useState(false);
-  const translate = (key: string) => i18n.t(key)
+  const { translate, setLanguage, language } = useLanguage('es')
   const initialContext: IApplicationContext = {
-    translate,
-    language: lang,
-    setLanguage: setLang,
+    language: language,
     session: session,
-    setSession: setSession,
     isAuth: isAuth,
+    translate,
+    setLanguage: setLanguage,
+    setSession: setSession,
     setIsAuth: setIsAuth
   }
-  i18n.changeLanguage(lang)
   return (<div>
     <ApplicationContext.Provider value={initialContext}>
       <Router>
