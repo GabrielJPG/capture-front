@@ -11,18 +11,18 @@ import {
 } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useLanguage } from './hooks/language-hook';
+import { ILanguageHook, useLanguage } from './hooks';
 
 function App() {
   const [session, setSession] = useState(null as Session | null);
   const [isAuth, setIsAuth] = useState(false);
-  const { translate, setLanguage, language } = useLanguage('es')
+  const hookTranslate: ILanguageHook = useLanguage('es')
   const initialContext: IApplicationContext = {
-    language: language,
+    language: hookTranslate.language,
     session: session,
     isAuth: isAuth,
-    translate,
-    setLanguage: setLanguage,
+    translate: hookTranslate.translate,
+    setLanguage: hookTranslate.setLanguage,
     setSession: setSession,
     setIsAuth: setIsAuth
   }

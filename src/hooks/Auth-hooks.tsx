@@ -1,47 +1,10 @@
 import dayjs from "dayjs";
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { ApplicationContext, Session } from "../contexts/App.Context";
+import { ApplicationContext } from "../contexts/App.Context";
 import profile from '../assets/img/profile.png';
-
-/**
- * Represents responsibility of a component to handle authentication.
- *
- * @export
- * @interface IAuth
- */
-export interface IAuth {
-    /**
-     *
-     * Represents the is the current user is authenticated.
-     * @type {boolean}
-     * @memberof IAuth
-     */
-    isAuth: boolean;
-    /**
-     * Returns the current user info.
-     *
-     * @type {(Session | null)}
-     * @memberof IAuth
-     */
-    session: Session | null;
-    /**
-     * Represents function to handle authentication [login].
-     *
-     * @param {string} username
-     * @param {string} password
-     * @type {(() => Promise<void>)}
-     * @memberof IAuth
-     */
-    login: (user: string, password: string) => Promise<void>;
-    /**
-     * Represents function to handle authentication [logout].
-     *
-     * @memberof IAuth
-     */
-    logout: () => void;
-}
-
+import { IAuth } from "./interfaces/IAuth";
+// import { useLocalStorage } from "./localstorage-hook";
 
 /**
  * Hook for auth
@@ -51,6 +14,8 @@ export interface IAuth {
 export const useProvideAuth = (): IAuth => {
     const context = useContext(ApplicationContext)
     const history = useHistory();
+    // const localSession = useLocalStorage<any>('user-session', {});
+    // const sessionAuth = useLocalStorage<boolean>('session-auth', false);
     const login = (user: string, password: string) => new Promise<void>((resolve) => {
         setTimeout(() => {
             context.setSession({
@@ -62,17 +27,31 @@ export const useProvideAuth = (): IAuth => {
                 photoProfile: profile,
             })
             context.setIsAuth(true);
+            // localSession.setValue({
+            //     userId: 1,
+            //     userName: user,
+            //     fullName: 'Prodoctivity User',
+            //     email: 'prodoctivity@prodoctivity@mail.com',
+            //     expireDate: dayjs().add(1, "days").toDate(),
+            //     photoProfile: profile,
+            // })
+            // sessionAuth.setValue(true);
             resolve();
         }, 1000);
     });
-    const logout = () => {
-        context.setSession(null);
-        context.setIsAuth(false);
-        history.push("/");
-    };
+    const logout = () => new Promise<void>((resolve) => {
+        setTimeout(() => {
+            context.setSession(null);
+            context.setIsAuth(false);
+            // localSession.setValue({});
+            // sessionAuth.setValue(false);
+            resolve();
+            history.push("/");
+        }, 1000);
+    });
     return {
-        isAuth: context.isAuth,
-        session: context.session,
+        isAuth: context.isAuth, //|| sessionAuth.value,
+        session: context.session, //|| localSession.value,
         login,
         logout
     }

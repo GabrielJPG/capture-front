@@ -16,7 +16,7 @@ export const MenuSection: React.FC<{ onChangeOption: (option: string) => void; c
 
     return <nav className="c-navbar">
         <ul className="c-navbar__content">
-            {menu.map(x => <MenuItem active={x.active} icon={x.icon} linkTo={x.linkTo} activeIcon={x.activeIcon} />)}
+            {menu.map((x, index) => <MenuItem key={index.toString()} active={x.active} icon={x.icon} linkTo={x.linkTo} activeIcon={x.activeIcon} />)}
         </ul>
     </nav>;
 };

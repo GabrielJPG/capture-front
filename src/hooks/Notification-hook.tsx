@@ -1,22 +1,9 @@
 import React from "react";
 import { toast } from "react-toastify";
+import { INotify } from "./interfaces/INotify";
 
 // Represents a type of notification
 export type NotificationType = 'default' | 'info' | 'warning' | 'error'
-
-/**
- * Represents notification hook functions
-*/
-export interface INotify {
-    /**
-     * Displays a notification
-     * 
-     *@param {message} message to display
-     * 
-     * @memberof INotify
-     */
-    show: (message: string) => void
-}
 
 const customId = "custom-id-yes";
 const toastConfig = {
@@ -34,8 +21,9 @@ const toastConfig = {
  * The notification hook is a simple wrapper around the toast notification
  * implements the INotify interface
  * @implements {INotify}
+ * @param {NotificationType} type - The type of notification to display
  * 
- * 
+ * @returns {INotify} implementation of INotify
 */
 export const useNotify = (type: NotificationType): INotify => {
     const displayToast = (message: string) => {
