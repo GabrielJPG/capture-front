@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext, useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { ApplicationContext } from '../../contexts/App.Context';
 import { AppLogo } from '../../shared/logo/app-logo';
 import { ResultSearchPanel } from './components/ResultSearchPanel';
@@ -48,7 +48,12 @@ export const FilesPage: React.FC = (props) => {
                 {processDocuments.filter((x) => x.handle === 0).map((x) => <DocumentCardInfo key={x.handle} {...x} />)}
             </div>
             <div className="btn-container">
-                <a href="completar.clean.html" className="btn btn-primary btn-animate">{translate("Complete")}</a>
+                {/* <a href="completar.clean.html" className="btn btn-primary btn-animate">{translate("Complete")}</a> */}
+                <Link className="btn btn-primary btn-animate" to={{
+                    pathname: 'process',
+                    search: `continue_prc=${processDocuments[0].process}`,
+                    state: { id: processDocuments[0].process, documents: processDocuments, page: 'process' }
+                }} >{translate("Complete")}</Link>
             </div>
             <div className="process-workspace__heading">
                 <h3 className="secondary-heading-workspace">{translate("CompleteDocuments")}</h3>

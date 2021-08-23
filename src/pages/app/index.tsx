@@ -10,6 +10,7 @@ import {
 import { Profile, ProfileProccessHeader, ProfileSearchProcsess } from '../Profile';
 import { ProccessHeaderSetting, ProcsessSettings, Settings } from '../Settings';
 import { ProccessHeaderSearch, ProcsessSearch, Search } from '../search/search';
+import { ContinueProcess, ContinueProcessHeader, ContinueProcessPanel } from '../continue-process';
 
 
 
@@ -52,6 +53,10 @@ export const Home: React.FC = () => {
         '/app/search': {
             header: <ProccessHeaderSearch />,
             search: <ProcsessSearch />,
+        },
+        '/app/process': {
+            header: <ContinueProcessHeader />,
+            search: <ContinueProcessPanel />,
         }
     } as any
 
@@ -71,12 +76,11 @@ export const Home: React.FC = () => {
             <AuthRoute path={`${section}/home`} exact component={EmptyHomePage} />
             <AuthRoute path={`${section}/documents`} component={Documents} />
             <AuthRoute path={`${section}/files`} component={FilesPage} />
-            <AuthRoute path={`${section}/files/:id`} component={FilesPage} />
+            <AuthRoute path={`${section}/process`} component={ContinueProcess} />
             <AuthRoute path={`${section}/settings`} component={Settings} />
             <AuthRoute path={`${section}/qr-document`} component={qrDocument} />
             <AuthRoute path={`${section}/profile`} component={Profile} />
             <AuthRoute path={`${section}/search`} component={Search} />
-            {/* <Route path={`${section}/logout`} component={Logout} /> */}
             <AuthRoute path={`${section}/*`}>
                 <NoMatch />
             </AuthRoute>
