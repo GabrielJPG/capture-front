@@ -47,6 +47,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "start-wpa": "react-scripts build && cd ./build  && http-server",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

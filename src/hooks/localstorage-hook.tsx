@@ -7,6 +7,10 @@ const getStorageValue = <T extends {}>(key: string, defaultValue: T): T => {
     return initial || defaultValue;
 }
 
+const destroyStorageValue = (key: string): void => {
+    localStorage.removeItem(key);
+}
+
 /**
  * hook to get/set localstorage values
  * @implements {ILocalStorage}
@@ -22,8 +26,10 @@ export const useLocalStorage = <T extends {}>(key: string, defaultValue: T): ILo
         console.log(`useLocalStorage: ${key} ${value}`);
         localStorage.setItem(key, JSON.stringify(value));
     }, [key, value]);
+
     return {
         value: value,
-        setValue: setValue
+        setValue: setValue,
+        destroy: () => destroyStorageValue(key)
     };
 }

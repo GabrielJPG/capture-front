@@ -76,6 +76,7 @@ export const Home: React.FC = () => {
             <AuthRoute path={`${section}/qr-document`} component={qrDocument} />
             <AuthRoute path={`${section}/profile`} component={Profile} />
             <AuthRoute path={`${section}/search`} component={Search} />
+            {/* <Route path={`${section}/logout`} component={Logout} /> */}
             <AuthRoute path={`${section}/*`}>
                 <NoMatch />
             </AuthRoute>

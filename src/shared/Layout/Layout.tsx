@@ -35,8 +35,12 @@ export const Layout: React.FC<LayoutProps> = (props) => {
                                 <ul>
                                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                     <li><Link to='/app/profile' >{translate("Profile")}</Link></li>
-                                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                    <li><a href="" onClick={() => auth.logout()}>{translate("CloseSession")}</a></li>
+
+                                    <li>
+                                        {/* <Link to='/app/logout'>{translate("CloseSession")}</Link> */}
+                                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                        <a href="" onClick={() => auth.logout().then()}>{translate("CloseSession")}</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
