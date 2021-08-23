@@ -50,9 +50,11 @@ export const useProvideAuth = (): IAuth => {
         }, 1000);
 
     });
+
+
     return {
-        isAuth: context.isAuth || sessionAuth.value,
-        session: context.session || localSession.value,
+        isAuth: context.isAuth,
+        session: context.session,
         login,
         logout
     }

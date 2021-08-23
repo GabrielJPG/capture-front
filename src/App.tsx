@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ApplicationContext, IApplicationContext, Session } from './contexts/App.Context';
+import { ApplicationContext, IApplicationContext } from './contexts/App.Context';
 import { Home } from './pages/app';
 import { Login } from './pages/login/login';
 import { NoMatchPublic } from './pages/404/public';
@@ -11,16 +11,19 @@ import {
 } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ILanguageHook, useLanguage } from './hooks';
+import { ILanguageHook, useLanguage, useLocalStorage } from './hooks';
+import { Session } from 'inspector';
 
 function App() {
-  const [session, setSession] = useState(null as Session | null);
-  const [isAuth, setIsAuth] = useState(false);
+  const localSession = useLocalStorage<Session>('user-session', {} as any);
+  const sessionAuth = useLocalStorage<boolean>('session-auth', false);
+  const [currentSession, setSession] = useState(localSession.value as any);
+  const [currentIsAuth, setIsAuth] = useState(sessionAuth.value);
   const hookTranslate: ILanguageHook = useLanguage('es')
   const initialContext: IApplicationContext = {
     language: hookTranslate.language,
-    session: session,
-    isAuth: isAuth,
+    session: currentSession,
+    isAuth: currentIsAuth,
     translate: hookTranslate.translate,
     setLanguage: hookTranslate.setLanguage,
     setSession: setSession,
