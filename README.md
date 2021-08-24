@@ -14,6 +14,8 @@ Please comment on your code as much as possible so that other team members avoid
 
 If you use custom hooks that they return interface implementations (which should also be documented) to make it easier to replace functions
 
+In production, only the WPA function is active if the server has security certificates installed to use HTTPS protocols. Because the required web worker only install on user browser if this site running over https. For more info about WPA visit official site of [Google developers](https://developers.google.com/web/fundamentals/primers/service-workers?hl=es)
+
 ## Develop commands
 
 - yarn start : running on port 3000
