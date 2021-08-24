@@ -6,6 +6,22 @@
 
 /*--------------------------------------------*/
 
+.u-hide-sidebar {
+    & .process {
+        display: none;
+    }
+    & .l-section-bag {
+        min-width: auto;
+        margin-right: 3rem;
+    }
+    & .process-header {
+        border-top-left-radius: 1.5rem;
+        margin-left: -1rem;
+        z-index: 4;
+        position: relative;
+    }
+}
+
 .u-color-primary {
     color: $primary-color;
 }

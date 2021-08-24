@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import { Profile, ProfileProccessHeader, ProfileSearchProcsess } from '../Profile';
 import { ProccessHeaderSetting, ProcsessSettings, Settings } from '../Settings';
-import { ProccessHeaderSearch, ProcsessSearch, Search } from '../search/search';
+import { ProccessHeaderSearch, ProcsessSearch, Search } from '../Search/search';
 import { ContinueProcess, ContinueProcessHeader, ContinueProcessPanel } from '../continue-process';
 
 
