@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { MenuSection } from '../Menu/MenuSection';
 import { useProvideAuth } from '../../hooks/Auth-hooks';
 import { Link } from 'react-router-dom';
+import { AppLogo } from '../logo/app-logo';
 ;
 
 
@@ -19,7 +20,6 @@ export type LayoutProps = {
 export const Layout: React.FC<LayoutProps> = (props) => {
     const { translate, session } = useContext(ApplicationContext);
     const auth = useProvideAuth()
-    console.log(props)
 
     const [currentOption, setCurrentOption] = useState('Home')
     return <div className={`l-container-base ${props.hidePanel ? 'u-hide-sidebar' : ''}`}>
@@ -28,8 +28,8 @@ export const Layout: React.FC<LayoutProps> = (props) => {
             {props.SearchPanel}
         </section>
         <section className="section-workspace">
-            {/* this section is real body */}
             <header className="header">
+                {props.hidePanel && <AppLogo />}
                 <div className="c-account">
                     <img src={session?.photoProfile} alt="x" className="c-account__image" />
                     <nav className="c-account__logout">
@@ -42,7 +42,6 @@ export const Layout: React.FC<LayoutProps> = (props) => {
                                     <li><Link to='/app/profile' >{translate("Profile")}</Link></li>
 
                                     <li>
-                                        {/* <Link to='/app/logout'>{translate("CloseSession")}</Link> */}
                                         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                         <a href="" onClick={() => auth.logout().then()}>{translate("CloseSession")}</a>
                                     </li>
