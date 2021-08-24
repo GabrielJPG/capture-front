@@ -52,7 +52,7 @@ export const FilesPage: React.FC = (props) => {
                 <Link className="btn btn-primary btn-animate" to={{
                     pathname: 'process',
                     search: `continue_prc=${processDocuments[0].process}`,
-                    state: { id: processDocuments[0].process, documents: processDocuments, page: 'process' }
+                    state: { id: processDocuments[0].process, documents: processDocuments, page: 'process', hidePanel: true }
                 }} >{translate("Complete")}</Link>
             </div>
             <div className="process-workspace__heading">

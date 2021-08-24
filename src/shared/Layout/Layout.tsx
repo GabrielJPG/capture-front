@@ -5,19 +5,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { MenuSection } from '../Menu/MenuSection';
 import { useProvideAuth } from '../../hooks/Auth-hooks';
 import { Link } from 'react-router-dom';
+;
 
 
 export type LayoutProps = {
     SearchPanel: JSX.Element;
     ProcessHeader: JSX.Element;
-    children?: any
+    hidePanel: boolean;
+    children?: any;
+
 }
 
 export const Layout: React.FC<LayoutProps> = (props) => {
     const { translate, session } = useContext(ApplicationContext);
     const auth = useProvideAuth()
+    console.log(props)
+
     const [currentOption, setCurrentOption] = useState('Home')
-    return <div className="l-container-base">
+    return <div className={`l-container-base ${props.hidePanel ? 'u-hide-sidebar' : ''}`}>
         <section className="l-section-bag">
             <MenuSection current={currentOption} onChangeOption={(value) => setCurrentOption(value)} />
             {props.SearchPanel}

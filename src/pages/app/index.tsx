@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import { Profile, ProfileProccessHeader, ProfileSearchProcsess } from '../Profile';
 import { ProccessHeaderSetting, ProcsessSettings, Settings } from '../Settings';
-import { ProccessHeaderSearch, ProcsessSearch, Search } from '../Search/search';
+import { ProccessHeaderSearch, ProcsessSearch, Search } from '../search/search';
 import { ContinueProcess, ContinueProcessHeader, ContinueProcessPanel } from '../continue-process';
 
 
@@ -25,38 +25,47 @@ export const Home: React.FC = () => {
         '/app/home': {
             header: <ProccessHeader />,
             search: <SearchProcsess />,
+            hidePanel: false
         },
         '/app/files': {
             header: <FileProcessHeader />,
             search: <FileSearchProcess />,
+            hidePanel: false
         },
         '/app/documents': {
             header: <ProccessHeader />,
             search: < SearchProcsess />,
+            hidePanel: false
         },
         '/app/qr-documents': {
             header: <ProccessHeader />,
             search: < SearchProcsess />,
+            hidePanel: true
         },
         '/app/profile': {
             header: <ProfileProccessHeader />,
             search: <ProfileSearchProcsess />,
+            hidePanel: true
         },
         '*': {
             header: <ProccessHeader404 />,
             search: <Procsess404 />,
+            hidePanel: true
         },
         '/app/settings': {
             header: <ProccessHeaderSetting />,
             search: <ProcsessSettings />,
+            hidePanel: false
         },
         '/app/search': {
             header: <ProccessHeaderSearch />,
             search: <ProcsessSearch />,
+            hidePanel: true
         },
         '/app/process': {
             header: <ContinueProcessHeader />,
             search: <ContinueProcessPanel />,
+            hidePanel: true
         }
     } as any
 
@@ -71,7 +80,7 @@ export const Home: React.FC = () => {
         history.push("/app/home")
     }
 
-    return <Layout ProcessHeader={render ? render.header : <div />} SearchPanel={render ? render.search : <div />}>
+    return <Layout hidePanel={render.hidePanel} ProcessHeader={render ? render.header : <div />} SearchPanel={render ? render.search : <div />}>
         <Switch>
             <AuthRoute path={`${section}/home`} exact component={EmptyHomePage} />
             <AuthRoute path={`${section}/documents`} component={Documents} />
