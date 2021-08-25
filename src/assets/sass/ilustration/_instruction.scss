@@ -1,0 +1,42 @@
+/*--------------------------------------------*/
+/*           INSTRUCTIONS FOR USERS           */
+/*--------------------------------------------*/
+.document-instruction{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50rem;
+    text-align: center;
+
+    &__ilustration{
+        & iframe{
+            width: 50rem;
+            height: 42rem;
+        }
+
+        & img{
+            width: 40rem;
+        }
+    }
+
+    &__heading{
+        color: $primary-color;
+        font-size: 2rem;
+        line-height: 1.5;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    &__subheading{
+        color: $primary-color-darker;
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
+
+    &__button{
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+}

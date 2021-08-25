@@ -1,0 +1,79 @@
+/*--------------------------------------------*/
+/*           LEFT NAVIGATION                  */
+/*--------------------------------------------*/
+.c-navbar{
+    min-width: 8rem;
+    padding-top: 13rem;
+    background: $primary-color;
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__item{
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        list-style-type: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__icon{
+        color: white;
+        font-size: 3rem;
+        transition: all .3s;
+        will-change: transform;
+
+        &:hover{
+            transform: translateX(0.5rem);
+        }
+    }
+
+    & .active{
+        background: #E6EDF8;
+        width: 80%;
+        align-self: flex-end;
+        border-top-left-radius: 2.5rem;
+        border-bottom-left-radius: 2.5rem;
+        position: relative;
+
+        
+
+        & i{
+            color: $primary-color;
+
+            &:hover{
+                transform: initial;
+            }
+        }
+
+        &:before,
+        &:after{
+            position: absolute;
+            width: 2.3rem;
+            height: 1.6rem;
+            content: " ";
+        }
+
+        &:before{
+            right: 0;
+            border-bottom-right-radius: 2.6rem;
+            border-width: 0 0px 0px 0;
+            box-shadow: 8px 2px 0 $secondary-color;
+            top: -1.6rem;
+            background: $primary-color;
+        }
+
+        &:after {
+            right: -0.3px;
+            bottom: -1.6rem;
+            border-top-right-radius: 2.6rem;
+            border-width: 0 0 1px 1px;
+            box-shadow: 7px -3px 0px $secondary-color;
+          }
+    }
+}
+

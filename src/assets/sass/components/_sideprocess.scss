@@ -1,0 +1,71 @@
+/*--------------------------------------------*/
+
+
+/*              SIDE PROCESS BAR              */
+
+
+/*--------------------------------------------*/
+
+.process {
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-right: 0;
+    &__heading {
+        background: $secondary-color-darker;
+        padding: 2rem;
+        border-top-right-radius: 1.5rem;
+        border-top-left-radius: 1.5rem;
+        & h3 {
+            display: inline-block;
+            width: 80%
+        }
+    }
+    &__amount {
+        font-size: 4rem;
+        font-weight: 700;
+        color: $primary-color;
+        margin-right: 1rem;
+    }
+    &__wrapper {
+        position: relative;
+        flex: 1;
+    }
+    &__content {
+        padding: 1rem;
+        border-bottom: 1px solid #d3dbe9;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    &--layout {
+        grid-row: 1/-1;
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color: $primary-color;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    &--layout {
+        margin-bottom: 0;
+        background: #e6edf8;
+        border-radius: 0 2rem 0 0;
+    }
+    &__logo {
+        width: 18rem;
+        margin-right: 1rem;
+        &--layout {
+            width: 15rem;
+            margin-left: 2rem;
+        }
+    }
+}

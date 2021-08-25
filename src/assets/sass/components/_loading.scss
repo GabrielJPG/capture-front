@@ -1,0 +1,54 @@
+
+/*--------------------------------------------*/
+/*              LOADIN                        */
+/*--------------------------------------------*/
+/* PADING TO DELETE*/
+$color-5: #0F44A0;
+$color-4: #2c62c0;
+$color-3: #1a6bf7;
+$color-2: #4a8cff;
+$color-1: #85b2ff;
+
+
+$color: $color-1, $color-2, $color-3, $color-4, $color-5;
+
+
+.loading-scanning {
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      animation-delay: 1s;
+      width: 20rem;
+      margin-left: auto;
+      margin-right: 16rem;  
+  }
+  
+  
+  @for $i from 1 through 5 {
+    .item-#{$i} {
+      width: 2rem;
+      height: 2rem;
+      background: #5392FF;
+      border-radius: 50%;
+      @include anim();
+      background-color: nth($color, $i);
+      margin: 0.7rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      &:before {
+        content: '';
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: nth($color, $i);
+        opacity: 0.7;
+        animation: scale 2s infinite cubic-bezier(0, 0, 0.49, 1.02);
+        animation-delay: 200ms * $i;
+        transition: 0.5s all ease;
+        transform: scale(1);
+      }
+    }
+  }

@@ -1,0 +1,167 @@
+/*--------------------------------------------*/
+/*                HEADER                      */
+/*--------------------------------------------*/
+.header{
+    display: flex;
+    background-color: $primary-color;
+    color: white;
+    justify-content: flex-end;
+    font-size: 1.4rem;
+    padding: 1rem;
+    position: relative;
+
+}
+
+/*--------------------------------------------*/
+/*                c-account USER                */
+/*--------------------------------------------*/
+
+.c-account{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__image{
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 0.3rem solid white;
+    }
+    &__logout{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 1rem;
+        z-index: 5;
+
+        ul{
+            list-style: none;
+            position: relative;
+            float: right;
+            margin-right: auto;
+            display: inline-table;
+
+            ul{
+                display: none;
+                background: #fff;
+                position: absolute; 
+                top: 100%;
+                box-shadow: -3px 3px 10px -2px rgba(0,0,0,.1);
+                border: 1px solid rgba(0,0,0,.1);
+
+                ul {
+                    position: absolute; 
+                    left: 100%; 
+                    top:0;
+                  }	
+
+                li{float: none; position: relative;
+                
+                    a {
+                        padding: 1.5rem 3rem; 
+                        border-bottom: 1px solid rgba(0,0,0,.05);
+                        color: $text-color;
+                      }
+                }
+              }
+
+            li{
+                float: left;
+                -webkit-transition: all .2s ease-in-out;
+                -moz-transition: all .2s ease-in-out;
+                transition: all .2s ease-in-out;
+
+                &:hover{background: rgba(0,0,0,.15);}
+                &:hover > ul{display: block; border-radius: 0.5rem;
+                    }
+
+                & a{
+                    display: block; 
+        
+                    color: white; 
+                    font-size: .9em;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}
+
+/*--------------------------------------------*/
+/*         PROCESS HEADER INFORMATION         */
+/*--------------------------------------------*/
+.process-header{
+    background: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 1.5rem;
+    box-shadow: $shadow;
+
+    &__info{
+        color: $primary-color;
+    }
+    &__name{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        
+
+        & .name{
+            font-size: 2.4rem;
+            margin-right: 1.5rem;
+        }
+        & .number{
+            font-size: 2.8rem;
+            font-weight: 600;
+        }
+    }
+
+    &__date{
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__expiration{
+        margin-right: 1rem;
+    }
+    &__icon{
+        margin-right: 0.3rem;
+        color: $primary-color;
+    }
+
+    &--layout{
+        border-top-left-radius: 1.5rem;
+        margin-left: 3rem;
+        z-index: 4;
+        position: relative;
+
+        &__icon{
+            font-size: 2rem;
+            margin-right: 2rem;
+            display: inline;
+        }
+
+        &__name{
+            color: $primary-color;
+            font-size: 1.4rem;
+            margin-left: 3.4rem;
+        }
+    }
+
+    /* -----------  ESTATES ------------  */
+    &__info.is-ontime .c-process-info__state{
+        background: $success-color;
+    }
+    &__info.is-expiring .c-process-info__state{
+        background: $pending-color;
+    }
+    &__info.has-expired .c-process-info__state{
+        background: $danger-color;
+    }
+}
+  

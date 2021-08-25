@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ProDoctivity Front Capture</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<style>
+    .pdftira.animated.slideInDown.delay-2s {
+        width: auto;
+        border-radius: 0 0 2rem;
+        background: #e6edf8;
+        color: #0f44a0;
+        padding-right: 2rem;
+        z-index: 1;
+
+
+    }
+
+    .pdftira.animated.slideInDown.delay-2s i {
+        color: #0f44a0;
+    }
+
+    .c-pdftron__content.test {
+        margin-top: 4rem;
+    }
+
+    .pdftira {
+        margin-top: 4.5rem;
+        position: fixed;
+        background: #0f44a0;
+        border-color: #e6edf8;
+        color: white;
+        font-size: 1.4rem;
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .pdftira-icon {
+        color: white;
+        font-size: 2rem;
+        margin-right: 1rem;
+    }
+
+
+    .testing {
+        opacity: 0;
+        animation: testing .5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes testing {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .testing1 {
+        animation: testing1 .5s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        position: fixed;
+
+    }
+
+    @keyframes testing1 {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+</style>
+
+<body>
+    <div class="l-container-base">
+        <section class="l-section-bag l-section-bag--short">
+            <nav class="c-navbar">
+                <ul class="c-navbar__content">
+                    <li class="c-navbar__item ">
+                        <a href="index.html"><i class="c-navbar__icon fas fa-home"></i></a>
+                    </li>
+                    <li class="c-navbar__item">
+                        <a href="#"><i class="c-navbar__icon fas fa-folder"></i></a>
+                    </li>
+                    <li class="c-navbar__item active">
+                        <a href="completar.clean.html"><i class="c-navbar__icon fad fa-qrcode"></i></a>
+                    </li>
+                    <li class="c-navbar__item ">
+                        <a href="search.html"><i class="c-navbar__icon fas fa-search"></i></a>
+                    </li>
+                    <li class="c-navbar__item ">
+                        <a href="search.html"><i class="c-navbar__icon fas fa-cog"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+        <section class="section-workspace">
+            <div class="header-container">
+                <span class="logo-container logo-container--layout">
+                    <img src="img/logo.png" alt="" class="logo-container__logo logo-container__logo--layout">
+                    Front Capture
+                </span>
+                <header class="header">
+                    <div class="c-account">
+                        <img src="img/profile.png" alt="" class="c-account__image">
+                        <nav class="c-account__logout">
+                            <div class="c-account__name">Anne Lorraine Hernández</div>
+                            <ul>
+                                <li><a href="#">Log out <i class="fas fa-sort-down"></i></a>
+                                    <ul>
+                                        <li><a href="">Our team</a></li>
+                                        <li><a href="">Cerrar Sesión</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+
+            </div>
+            <div class="process-header process-header--layout">
+                <div class="process-header--layout__header">
+
+                    <h2 class="primary-heading"><i class="fas fa-file process-header--layout__icon "></i>Solicitud de
+                        Prestamo Hipotecario</h2>
+                    <div class="process-header--layout__name">
+                        Juan Medina Carvajal
+                    </div>
+                </div>
+                <div class="loading-scanning hidden">
+                    <div class="item-1"></div>
+                    <div class="item-2"></div>
+                    <div class="item-3"></div>
+                    <div class="item-4"></div>
+                    <div class="item-5"></div>
+                </div>
+
+                <div class=" process-header__info is-ontime">
+                    <div class="process-header__name">
+                        <span class="name">Proceso</span>
+                        <span class="number">456781</span>
+                        <span class="c-process-info__state c-process-info__state--header  "></span>
+                    </div>
+                    <div class="process-header__date">
+                        <span class="process-header__expiration">
+                            <span class="tooltip  ">
+                                <i class="far fa-calendar process-header__icon"></i>
+                                <span class="tooltip-text tooltip-text--header">
+                                    Fecha de creación
+                                </span>
+                            </span>
+                            18/02/2020
+                        </span>
+                        <span class="process-header__expiration">
+                            <span class="tooltip  ">
+                                <i class="far fa-clock process-header__icon"></i>
+                                <span class="tooltip-text tooltip-text--header">
+                                    Hora de creación
+                                </span>
+                            </span>
+                            12:56 pm
+                        </span>
+
+
+                        <span class="tooltip tooltip--owner">
+                            <i class="fas fa-info-circle tooltip__icon"></i>
+                            <span class="tooltip-text tooltip-text--owner">
+                                Creado por: Juan Peréz<br>
+                                Email: juanperez@gmail.com<br>
+                                Teléfono: 849-0789-0465
+                            </span>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="fullscreen-mode hidden">
+                    <i class="fas fa-expand fullscreen-mode__icon"></i> <a href="#">Pantalla
+                        completa</a>
+                </div>
+            </div>
+
+
+            <div class="l-document-workspace">
+                <div class="l-document-preview">
+                    <div class="l-document-preview__content">
+                        <div class="document-bag">
+                            <div class="document-bag__header">
+                                Documentos generados por ProDoctivity
+                            </div>
+                            <div class="document-bag__content">
+                                <div class="c-document-status is-indexed">
+                                    <div class="c-document-status__icon">
+                                        <i class="fas fa-file c-document-status__icon--file"></i>
+                                        <i class="far fa-check-circle c-document-status__icon--state"></i>
+                                        <i class="fas fa-qrcode c-document-status__icon--qr"></i>
+
+                                    </div>
+                                    <div class="c-document-status__title">
+                                        Contrato de Prestamo
+                                    </div>
+                                    <div class="c-document-status__state">
+                                        Indexado
+                                    </div>
+
+                                </div>
+                                <div class="c-document-status is-indexed">
+
+                                    <div class="c-document-status__icon">
+                                        <i class="fas fa-file c-document-status__icon--file"></i>
+                                        <i class="far fa-check-circle c-document-status__icon--state "></i>
+                                        <i class="fas fa-qrcode c-document-status__icon--qr"></i>
+                                    </div>
+                                    <div class="c-document-status__title">
+                                        Contrato de Garantía
+                                    </div>
+                                    <div class="c-document-status__state">
+                                        Indexado
+
+                                    </div>
+
+                                </div>
+                                <a class="c-document-status  is-incomplete" href="indexing.sample.html">
+                                    <div class="c-document-status__icon">
+                                        <i class="fas fa-file c-document-status__icon--file"></i>
+                                        <i class="far fa-clock c-document-status__icon--state"></i>
+                                        <i class="fas fa-qrcode c-document-status__icon--qr"></i>
+                                    </div>
+                                    <div class="c-document-status__title">
+                                        Contrato de Seguros
+                                    </div>
+                                    <div class="c-document-status__state">
+                                        Incompleto
+                                        <span class="c-document-status__badge">Pág 1, 7 y 17</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="document-bag">
+                            <div class="document-bag__header document-bag__header--external">
+                                Documentos externos
+                            </div>
+                            <div class="document-bag__content">
+                                <div class="c-document-status is-pending">
+                                    <div class="c-document-status__icon">
+                                        <i class="fas fa-file c-document-status__icon--file"></i>
+                                        <i class="far fa-clock c-document-status__icon--state"></i>
+
+                                    </div>
+                                    <div class="c-document-status__title">
+                                        Carta de trabajo
+                                    </div>
+                                    <div class="c-document-status__state">
+                                        Pendiente
+
+                                    </div>
+
+                                </div>
+
+                                <div class="c-document-status  is-pending">
+                                    <div class="c-document-status__icon">
+                                        <i class="fas fa-file c-document-status__icon--file"></i>
+                                        <i class="far fa-clock c-document-status__icon--state"></i>
+                                    </div>
+                                    <div class="c-document-status__title">
+                                        Copia acta de nacimiento
+                                    </div>
+                                    <div class="c-document-status__state">
+                                        Pendiente
+                                    </div>
+
+                                </div>
+
+                                <div class="c-document-status  is-pending">
+                                    <div class="c-document-status__icon">
+                                        <i class="fas fa-file c-document-status__icon--file"></i>
+                                        <i class="far fa-clock c-document-status__icon--state"></i>
+                                    </div>
+                                    <div class="c-document-status__title">
+                                        Copia de cédula
+                                    </div>
+                                    <div class="c-document-status__state">
+                                        Pendiente
+                                    </div>
+
+                                </div>
+                                <div class="c-document-status  is-pending">
+                                    <div class="c-document-status__icon">
+                                        <i class="fas fa-file c-document-status__icon--file"></i>
+                                        <i class="far fa-clock c-document-status__icon--state"></i>
+                                    </div>
+                                    <div class="c-document-status__title">
+                                        Copia de Matricula
+                                    </div>
+                                    <div class="c-document-status__state">
+                                        Indexado
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <div class="l-document-view">
+                    <div class="c-pdftron testing1">
+                        <div class="c-pdftron__header">
+                            <div class="pdfheader-item-container">
+                                <a href="scanning.sample.html" class="btn-split btn-pdfheader">Escanear
+                                    <ul>
+                                        <li class="first-li">
+                                            <i class="fa fa-angle-down arrow-icon"></i>
+                                            <ul>
+                                                <li><i class="fas fa-file-upload file-icon"></i>Importar</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </a>
+                            </div>
+                            <div class="pdfheader-item-container">
+                                <div class="scanner-options__group">
+                                    <label for="" class="scanner-options__label">Scanner</label>
+
+                                    <select name="" class="scanner-options__select">
+                                        <option value="">Epson 4566</option>
+                                        <option value="">Epson 4566</option>
+                                        <option value="">Epson 4566</option>
+                                    </select>
+                                </div>
+                                <div class="scanner-options__group">
+                                    <label for="" class="scanner-options__label">Perfil de escáner</label>
+
+                                    <select name="" class="scanner-options__select">
+                                        <option value="">Contratos</option>
+                                        <option value="">Epson 4566</option>
+                                        <option value="">Epson 4566</option>
+                                    </select>
+                                </div>
+                                <div class="scanner-options__group">
+                                    <label for="" class="scanner-options__label">Color</label>
+
+                                    <select name="" class="scanner-options__select">
+                                        <option value=""> Full color</option>
+
+                                        <option value="">Epson 4566</option>
+                                        <option value="">Epson 4566</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pdfheader-item-container">
+                                <div class="sendprocess">
+                                    <div class="sendprocess__header">
+                                        <div class="sendprocess__send">
+                                            <i class="fal fa-cloud-upload sendprocess__icon"></i>
+                                            <label class="sendprocess__label">Enviado</label>
+                                        </div>
+                                        <div class="sendprocess__pending">
+                                            <label class="sendprocess__label">Pendiente</label>
+                                            <i class="fal fa-clock sendprocess__icon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="sendprocess__bar">
+                                        <div class="progressbar">
+                                            <div class="progressbar__base">
+                                                <div class="progressbar__process"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="sendprocess__bottom">
+                                        <label for="" class="sendprocess__sendamount">
+                                            100
+                                        </label>
+                                        <label for="" class="sendprocess__pendingamount">
+                                            20
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="c-pdftron__content-wrapper">
+                            <div class="warningbox animated slideInDown">
+                                <i class="fas fa-exclamation-circle warningbox__icon"></i>
+                                Para indexar, seleccione tipo de documento.
+                            </div>
+                            <div class="c-pdftron__content">
+                                <div class="pdfitem highlight animated slow bounceOutLeft">
+                                    <img src="img/ImagenCartaDulceNunez.jpg" alt="" class="pdfitem__image">
+                                    <label for="cbx"></label>
+                                    <div class="pdfitem__checkbox">
+                                        <input class="inp-cbx" id="cbx3" type="checkbox" style="display: none;">
+                                        <label class="cbx" for="cbx3">
+                                            <span>
+                                                <svg width="1.2rem" height="1rem" viewBox="0 0 12 10">
+                                                    <polyline points="1.5 6 4.5 9 10.5 1">
+
+                                                    </polyline>
+                                                </svg>
+                                            </span>
+                                            <span style="display: none;">
+                                                Guardar contraseña
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="pdfitem highlight animated slow bounceOutLeft">
+                                    <img src="img/matricula.PNG" alt="" class="pdfitem__image">
+                                    <label for="cbx"></label>
+                                    <div class="pdfitem__checkbox">
+                                        <input class="inp-cbx" id="cbx4" type="checkbox" style="display: none;">
+                                        <label class="cbx" for="cbx4">
+                                            <span>
+                                                <svg width="1.2rem" height="1rem" viewBox="0 0 12 10">
+                                                    <polyline points="1.5 6 4.5 9 10.5 1">
+
+                                                    </polyline>
+                                                </svg>
+                                            </span>
+                                            <span style="display: none;">
+                                                Guardar contraseña
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="image-options">
+                                        <!-- <div class="image-options__item">
+                                            <i class="fas fa-times image-options__icon"></i>
+                                        </div> -->
+                                        <span class="tooltip ">
+                                            <div class="image-options__item image-options__item--first">
+                                                <i class="fas fa-times image-options__icon "></i>
+                                            </div>
+                                            <span class="tooltip-text tooltip-text--document-options">
+                                                Eliminar
+                                            </span>
+                                        </span>
+                                        <span class="tooltip ">
+                                            <div class="image-options__item">
+                                                <i class="far fa-barcode-read image-options__icon"></i>
+                                            </div>
+                                            <span class="tooltip-text tooltip-text--document-options">
+                                                Re-escanear
+                                            </span>
+                                        </span>
+                                        <span class="tooltip ">
+                                            <div class="image-options__item image-options__item--last">
+                                                <i class="fas fa-redo-alt image-options__icon "></i>
+                                            </div>
+                                            <span class="tooltip-text tooltip-text--document-options">
+                                                Rotar
+                                            </span>
+                                        </span>
+
+                                    </div>
+                                    <div class="group-selector">
+                                        <div class="group-selector__label">
+                                            Seleccione tipo de documento.
+                                        </div>
+                                        <select name="" id="" class="dropdown" onchange="location = this.value;">
+                                            <option value="index.html" class="index-form__option">Copia de
+                                                Matricula </option>
+                                            <option value="" class="index-form__option">Carta de trabajo</option>
+                                            <option value="" class="index-form__option">Copia acta de nacimiento
+                                            </option>
+                                            <option value="" class="index-form__option">Copia de cédula</option>
+
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="pdfitem d6">
+                                    <img src="img/Acta de nacimiento.jpg" alt="" class="pdfitem__image">
+                                    <label for="cbx"></label>
+                                    <div class="pdfitem__checkbox">
+                                        <input class="inp-cbx" id="cbx4" type="checkbox" style="display: none;">
+                                        <label class="cbx" for="cbx4">
+                                            <span>
+                                                <svg width="1.2rem" height="1rem" viewBox="0 0 12 10">
+                                                    <polyline points="1.5 6 4.5 9 10.5 1">
+
+                                                    </polyline>
+                                                </svg>
+                                            </span>
+                                            <span style="display: none;">
+                                                Guardar contraseña
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="pdfitem d7">
+                                    <img src="img/cedula.PNG" alt="" class="pdfitem__image">
+                                    <label for="cbx"></label>
+                                    <div class="pdfitem__checkbox">
+                                        <input class="inp-cbx" id="cbx4" type="checkbox" style="display: none;">
+                                        <label class="cbx" for="cbx4">
+                                            <span>
+                                                <svg width="1.2rem" height="1rem" viewBox="0 0 12 10">
+                                                    <polyline points="1.5 6 4.5 9 10.5 1">
+
+                                                    </polyline>
+                                                </svg>
+                                            </span>
+                                            <span style="display: none;">
+                                                Guardar contraseña
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="pdfitem d8">
+                                    <img src="img/registro.jpg" alt="" class="pdfitem__image">
+                                    <label for="cbx"></label>
+                                    <div class="pdfitem__checkbox">
+                                        <input class="inp-cbx" id="cbx4" type="checkbox" style="display: none;">
+                                        <label class="cbx" for="cbx4">
+                                            <span>
+                                                <svg width="1.2rem" height="1rem" viewBox="0 0 12 10">
+                                                    <polyline points="1.5 6 4.5 9 10.5 1">
+
+                                                    </polyline>
+                                                </svg>
+                                            </span>
+                                            <span style="display: none;">
+                                                Guardar contraseña
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-pdftron testing">
+                        <div class="c-pdftron__header">
+                            <div class="pdfheader-item-container">
+                                <a href="scanning.sample.html" class="btn-split btn-pdfheader">Escanear
+                                    <ul>
+                                        <li class="first-li">
+                                            <i class="fa fa-angle-down arrow-icon"></i>
+                                            <ul>
+                                                <li><i class="fas fa-file-upload file-icon"></i>Importar</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </a>
+                            </div>
+                            <div class="pdfheader-item-container">
+                                <div class="scanner-options__group">
+                                    <label for="" class="scanner-options__label">Scanner</label>
+
+                                    <select name="" class="scanner-options__select">
+                                        <option value="">Epson 4566</option>
+                                        <option value="">Epson 4566</option>
+                                        <option value="">Epson 4566</option>
+                                    </select>
+                                </div>
+                                <div class="scanner-options__group">
+                                    <label for="" class="scanner-options__label">Perfil de escáner</label>
+
+                                    <select name="" class="scanner-options__select">
+                                        <option value="">Contratos</option>
+                                        <option value="">Epson 4566</option>
+                                        <option value="">Epson 4566</option>
+                                    </select>
+                                </div>
+                                <div class="scanner-options__group">
+                                    <label for="" class="scanner-options__label">Color</label>
+
+                                    <select name="" class="scanner-options__select">
+                                        <option value=""> Full color</option>
+
+                                        <option value="">Epson 4566</option>
+                                        <option value="">Epson 4566</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="pdfheader-item-container">
+                                <div class="sendprocess">
+                                    <div class="sendprocess__header">
+                                        <div class="sendprocess__send">
+                                            <i class="fal fa-cloud-upload sendprocess__icon"></i>
+                                            <label class="sendprocess__label">Enviado</label>
+                                        </div>
+                                        <div class="sendprocess__pending">
+                                            <label class="sendprocess__label">Pendiente</label>
+                                            <i class="fal fa-clock sendprocess__icon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="sendprocess__bar">
+                                        <div class="progressbar">
+                                            <div class="progressbar__base">
+                                                <div class="progressbar__process"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="sendprocess__bottom">
+                                        <label for="" class="sendprocess__sendamount">
+                                            100
+                                        </label>
+                                        <label for="" class="sendprocess__pendingamount">
+                                            20
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="c-pdftron__content-wrapper">
+                            <div class="warningbox animated slideInDown">
+                                <i class="fas fa-exclamation-circle warningbox__icon"></i>
+                                Para indexar, seleccione tipo de documento.
+                            </div>
+                            <div class="c-pdftron__content">
+                                <div class="pdfitem d6">
+                                    <img src="img/Acta de nacimiento.jpg" alt="" class="pdfitem__image">
+                                    <label for="cbx"></label>
+                                    <div class="pdfitem__checkbox">
+                                        <input class="inp-cbx" id="cbx4" type="checkbox" style="display: none;">
+                                        <label class="cbx" for="cbx4">
+                                            <span>
+                                                <svg width="1.2rem" height="1rem" viewBox="0 0 12 10">
+                                                    <polyline points="1.5 6 4.5 9 10.5 1">
+
+                                                    </polyline>
+                                                </svg>
+                                            </span>
+                                            <span style="display: none;">
+                                                Guardar contraseña
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="pdfitem d7">
+                                    <img src="img/cedula.PNG" alt="" class="pdfitem__image">
+                                    <label for="cbx"></label>
+                                    <div class="pdfitem__checkbox">
+                                        <input class="inp-cbx" id="cbx4" type="checkbox" style="display: none;">
+                                        <label class="cbx" for="cbx4">
+                                            <span>
+                                                <svg width="1.2rem" height="1rem" viewBox="0 0 12 10">
+                                                    <polyline points="1.5 6 4.5 9 10.5 1">
+
+                                                    </polyline>
+                                                </svg>
+                                            </span>
+                                            <span style="display: none;">
+                                                Guardar contraseña
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="pdfitem d8">
+                                    <img src="img/registro.jpg" alt="" class="pdfitem__image">
+                                    <label for="cbx"></label>
+                                    <div class="pdfitem__checkbox">
+                                        <input class="inp-cbx" id="cbx4" type="checkbox" style="display: none;">
+                                        <label class="cbx" for="cbx4">
+                                            <span>
+                                                <svg width="1.2rem" height="1rem" viewBox="0 0 12 10">
+                                                    <polyline points="1.5 6 4.5 9 10.5 1">
+
+                                                    </polyline>
+                                                </svg>
+                                            </span>
+                                            <span style="display: none;">
+                                                Guardar contraseña
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
