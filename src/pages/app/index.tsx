@@ -1,4 +1,4 @@
-import { EmptyHomePage, ProccessHeader, SearchProcsess } from '../Dashboard/Index';
+import { ProccessHeader, SearchProcsess } from '../Dashboard/Index';
 import { FileProcessHeader, FileSearchProcess, FilesPage } from '../Files/Index';
 import { Layout, AuthRoute } from '../../shared';
 import { NoMatch, ProccessHeader404, Procsess404 } from '../404/private';
@@ -23,8 +23,8 @@ export const Home: React.FC = () => {
 
     const pages = {
         '/app/home': {
-            header: <ProccessHeader />,
-            search: <SearchProcsess />,
+            header: <FileProcessHeader />,
+            search: <FileSearchProcess />,
             hidePanel: false
         },
         '/app/files': {
@@ -82,7 +82,7 @@ export const Home: React.FC = () => {
 
     return <Layout hidePanel={render.hidePanel} ProcessHeader={render ? render.header : <div />} SearchPanel={render ? render.search : <div />}>
         <Switch>
-            <AuthRoute path={`${section}/home`} exact component={EmptyHomePage} />
+            <AuthRoute path={`${section}/home`} exact component={FilesPage} />
             <AuthRoute path={`${section}/documents`} component={Documents} />
             <AuthRoute path={`${section}/files`} component={FilesPage} />
             <AuthRoute path={`${section}/process`} component={ContinueProcess} />

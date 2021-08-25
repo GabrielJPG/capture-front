@@ -1,13 +1,40 @@
 import { DBSchema, IDBPDatabase, openDB } from 'idb'
 
+
+export interface FrontCaptureSettings {
+    type: 'fluency' | 'capture',
+    settings: FluencyConnection | CaptureConnection | undefined,
+}
+export interface ProDoctivityProxy {
+    login: (username: string, password: string) => Promise<any>
+}
+
+
+export type FluencyConnection = {
+    siteUrl: string,
+    apiKey: string,
+    apiKeyName: string,
+    username: string,
+    password: string,
+    useLoggedUseCredentials: boolean,
+}
+
+export type CaptureConnection = {
+    siteUrl: string,
+    username: string,
+    password: string,
+    useLoggedUseCredentials: boolean,
+}
+
 interface CaptureFrontSchema extends DBSchema {
     'app-setting': {
         key: string
-        value: string,
+        value: FrontCaptureSettings,
     },
     'user-session-data': {
         key: string
         value: any,
+
     }
 }
 
@@ -48,21 +75,48 @@ export class EntityContext {
 }
 
 interface IAppDbSetting {
-    getLanguage(): Promise<string>
-    updateLanguage(lang: string): Promise<string>
+    getSettings(): Promise<FrontCaptureSettings>
+    updateSettings(setting: FrontCaptureSettings): Promise<string>
 }
 
 export const useAppSetting = (): IAppDbSetting => {
     const db = new EntityContext()
     const table = 'app-setting'
-    const getLanguage = async (): Promise<string> => {
-        return db.get(table, 'language')
+    const get = async (): Promise<FrontCaptureSettings> => {
+        return db.get(table, 'setting')
     }
-    const updateLanguage = async (lang: string) => {
-        return db.put(table, 'language', { language: lang })
+    const put = async (setting: FrontCaptureSettings) => {
+        return db.put(table, 'setting', setting)
     }
     return {
-        getLanguage: getLanguage,
-        updateLanguage
+        getSettings: get,
+        updateSettings: put
+    }
+}
+
+export const useAppProxy = (type: 'fluency' | 'capture', conf: FluencyConnection | CaptureConnection | undefined): ProDoctivityProxy => {
+    const proxies = {
+        'fluency': useProDoctivityProxy,
+        'capture': useProDoctivityProxy
+    }
+    return proxies[type]((conf as FluencyConnection))
+}
+
+
+export const useProDoctivityProxy = (conn: FluencyConnection): ProDoctivityProxy => {
+    const serverUrl = 'http://18.218.98.135:8095'
+    return {
+        login: async (username: string, password: string) => {
+            const codec = btoa(`${username + '@prodoctivity'}:${password}`)
+            const url = new URL(serverUrl + '/api/accounts/authentication')
+            return fetch(url.toString(), {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Basic ${codec}`
+                }
+            })
+        }
     }
 }
