@@ -1,0 +1,93 @@
+/*--------------------------------------------*/
+/*        PLACEHOLDER DOCUMENT BOX            */
+/*--------------------------------------------*/
+.preloader{
+    background: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+    overflow: hidden;
+    animation: opacityOut 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+ .process-placeholder{
+    width: 33rem;
+    margin: 2rem auto;
+    background: #e6edf8;
+    border-radius: 1rem;
+    padding: 2rem 3rem;
+    position: relative;
+
+    &__title,
+    &__user,
+    &__owner,
+    &__count,
+    .placeholder__date{
+      background: #d3dbe9;
+      border-radius: 0.1rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      animation: pulse 1s infinite ease-in-out;
+    }
+    &__title{
+      width: 80%;
+    }
+    &__user{
+      width: 60%;
+    }
+    &__owner{
+      width: 40%;
+    }
+    &__count{
+      border-radius: 50%;
+      width: 7rem;
+      height: 7rem;
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+    }
+
+    &__date{
+      display: flex;
+      
+    }
+    & .placeholder__date{
+      width: 20%;
+      margin-right: 2rem;
+    }
+ }
+
+/*--------------------------------------------*/
+/*            PLACEHOLDER FORM                */
+/*--------------------------------------------*/
+ .form-placeholder{
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    &__label,
+    &__input,
+    &__item{
+      background: #d3dbe9;
+      border-radius: 0.1rem;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      animation: pulse 1s infinite ease-in-out;
+    }
+    &__label{
+      width: 40%;
+    }
+    &__group{
+      display: flex;
+      justify-content: space-between;
+    }
+    &__item{
+      width: 30%;
+    }
+
+ }
+
+ 

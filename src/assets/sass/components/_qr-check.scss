@@ -1,0 +1,45 @@
+.qr-check{
+    background: $primary-color;
+    width: 6rem;
+    border-radius: 0 0.7rem 1rem 0.7rem;
+    padding: 0.5rem 0.2rem;
+    position: absolute;
+    bottom: 3rem;
+    left: -1rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    &--pdftron{
+        left: -1.3rem;
+    }
+
+
+    &--warning{
+        background: $warning-color;
+    }
+
+    &::before{
+        @include pseudo;
+        width: 0.8rem;
+        height: 0.5rem;
+        border-radius: 1rem 0 0 0;
+        background: #8faad6;
+        top: -0.5rem;
+        left: 0;
+    }
+
+    &__qr{
+        background: white;
+        color: $primary-color-darker;
+        border-radius: 0.2rem;
+        padding: 0.2rem;
+    }
+    &__check{
+        color: white;
+        
+       
+    }
+
+}

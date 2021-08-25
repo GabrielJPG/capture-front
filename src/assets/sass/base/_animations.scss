@@ -1,0 +1,298 @@
+/*--------------------------------------------*/
+/*              ANIMATION BASE                */
+/*--------------------------------------------*/
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  .animated.delay-1s {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+
+  .animated.delay-2s {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+  }
+  .animated.delay-4s {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+  }
+  .animated.slow {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+  }
+
+  .appear-delay{
+    animation: opacity .8s;
+    opacity: 0;
+    animation-delay: 9.5s;
+    animation-fill-mode: forwards;
+}
+.showup-delay{
+    animation: showup .5s;
+    animation-delay: 9.5s;
+}
+/*--------------------------------------------*/
+/*              MODAL SHOWUP                  */
+/*--------------------------------------------*/
+@keyframes showup{
+    from{
+        transform: scale(0.2);
+    }
+    to {
+        transform: scale(1);
+        
+    }    
+}
+
+/*--------------------------------------------*/
+/*              FADE IN                       */
+/*--------------------------------------------*/
+.opacityIn{
+  animation-name: opacity;
+}
+@keyframes opacity{
+    from{
+        opacity: 0;
+        
+    }
+    to{
+        opacity: 1;
+        
+        
+    }
+}
+
+
+/*--------------------------------------------*/
+/*              FADE OUT                      */
+/*--------------------------------------------*/
+
+@keyframes opacityOut{
+  from{
+      opacity: 1;
+      
+  }
+  to{
+      opacity: 0;
+      z-index: -1;
+      
+  }
+}
+
+@keyframes appear{
+    from{
+        top: -4rem;
+    }
+    to{
+        top: 0rem;
+    }
+}
+
+@keyframes wave {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@keyframes load {
+    0% { width: 0; }
+    100% { width: 68%; }
+  }
+
+
+  @mixin anim() {
+    @keyframes scale {
+      0% {
+          transform: scale(1);
+      }
+      50%,
+      75% {
+        transform: scale(2.5);
+      }
+      78%, 100% {
+        opacity: 0;
+      }
+    }
+  }
+
+/*--------------------------------------------*/
+/*              SUCCESS CHECK                 */
+/*--------------------------------------------*/
+  @keyframes stroke {
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes grow {
+    0%, 100% {
+      transform: none;
+    }
+    50% {
+      transform: scale3d(1.1, 1.1, 1);
+    }
+  }
+  @keyframes fill {
+    100% {
+      box-shadow: inset 0px 0px 0px 30px #7ac142;
+    }
+  }
+  @keyframes fill-warnning {
+    100% {
+      box-shadow: inset 0px 0px 0px 30px #F89F38;
+    }
+  }
+
+
+ /*--------------------------------------------*/
+/*              ITEM APPEAR IN                 */
+/*--------------------------------------------*/
+  .slideInDown {
+    -webkit-animation-name: slideInDown;
+    animation-name: slideInDown;
+  }
+  @keyframes slideInDown {
+    from {
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+
+/*--------------------------------------------*/
+/*              ITEM DISAPPEAR                 */
+/*--------------------------------------------*/
+  @keyframes slideInUp {
+    from {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+      visibility: visible;
+    }
+  
+  }
+  
+  .slideInUp {
+    -webkit-animation-name: slideInUp;
+    animation-name: slideInUp;
+    animation-fill-mode: forwards;
+  }
+
+/*--------------------------------------------*/
+/*              ITEM APPEAR OUT               */
+/*--------------------------------------------*/
+  @keyframes slideOutDown {
+    from {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    to {
+      visibility: hidden;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+  
+  .slideOutDown {
+    -webkit-animation-name: slideOutDown;
+    animation-name: slideOutDown;
+  }
+
+
+/*--------------------------------------------*/
+/*              DOCUMENT OUT                  */
+/*--------------------------------------------*/
+  @keyframes bounceOutLeft {
+    20% {
+      opacity: 1;
+      -webkit-transform: translate3d(20px, 0, 0);
+      transform: translate3d(20px, 0, 0);
+    }
+  
+    to {
+      opacity: 0;
+      -webkit-transform: translate3d(-2000px, 0, 0);
+      transform: translate3d(-2000px, 0, 0);
+      
+    }
+  }
+  
+  .bounceOutLeft {
+    -webkit-animation-name: bounceOutLeft;
+    animation-name: bounceOutLeft;
+  }
+  
+
+
+  @keyframes zoomOut {
+    from {
+      opacity: 1;
+    }
+  
+    50% {
+      opacity: 0;
+      -webkit-transform: scale3d(0.3, 0.3, 0.3);
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+  
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .zoomOut {
+    -webkit-animation-name: zoomOut;
+    animation-name: zoomOut;
+  }
+
+/*--------------------------------------------*/
+/*              PRIMARY BUTTON                */
+/*--------------------------------------------*/
+  @keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/*--------------------------------------------*/
+/*              PLACEHOLDER                   */
+/*--------------------------------------------*/
+@keyframes pulse {
+  0% {
+      background-color: rgba(211, 219, 233, 1);
+  }
+  50% {
+      background-color: rgba(211, 219, 233, 0.5);
+  }
+  100% {
+      background-color: rgba(211, 219, 233, 1);
+  }
+}
+
+/*--------------------------------------------*/
+/*              DOCUMENT COUNT CHART          */
+/*--------------------------------------------*/
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}

@@ -1,0 +1,61 @@
+/*--------------------------------------------*/
+/*           WIDGET SEND AND PENDING          */
+/*--------------------------------------------*/
+.sendprocess{
+    display: flex;
+    flex-direction: column;
+    width: 23rem;
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__send{
+        color: $primary-color;
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        padding-right: 1rem;
+        align-items: center;
+    }
+
+    &__pending{
+        color: $pending-color;
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 1rem;
+        border-left: 1px solid $primary-color;
+    }
+
+    &__bar{
+        margin-top: 0.5rem;
+    }
+
+    &__label{
+        align-self: flex-end;
+    }
+
+    &__icon{
+        font-size: 1.7rem;
+    }
+
+    &__bottom{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0.5rem;
+    }
+
+    &__sendamount{
+        color: $primary-color;
+    }
+
+    &__pendingamount{
+        color: $pending-color;
+    }
+}
+
+
+

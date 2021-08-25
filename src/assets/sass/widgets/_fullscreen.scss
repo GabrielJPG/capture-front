@@ -1,0 +1,35 @@
+/*--------------------------------------------*/
+/*           FULL SCREEN BUTTON               */
+/*--------------------------------------------*/
+.fullscreen-mode{
+    position: absolute;
+    bottom: -4rem;
+    right: 0;
+    padding: 1rem;
+    background: $primary-color;
+    border-bottom-left-radius: 1.5rem;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+
+    &--full{
+        bottom: initial;
+    }
+    
+    &:hover{
+        cursor: pointer;
+        box-shadow: $shadow;
+        background: #0f44a0f0;
+    }
+
+    & a{
+        color: white;
+    }
+    
+    &__icon{
+        margin-right: 1rem;
+        font-size: 2rem;
+    }
+}
+

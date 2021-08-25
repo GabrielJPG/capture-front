@@ -1,0 +1,33 @@
+/*--------------------------------------------*/
+/*              TIRA INFO                     */
+/*--------------------------------------------*/
+.pdftira{
+    display: flex;
+    background: #fff3cd;
+    border: 0.1rem solid #fde49a;
+    border-radius: 0 0 2rem 2rem;
+
+    &__icon{
+        font-size: 2.3rem;
+        color: #f8b900;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 2rem;
+    }
+
+    &__info{
+        color: #856404;
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 3rem 0 4rem;
+        margin-left: -1rem;
+        border-radius: 0 0rem 2rem 0;
+    }
+
+    &__btn{
+        margin-left: 3rem;
+    }
+}

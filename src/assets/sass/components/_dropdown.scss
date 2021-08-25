@@ -1,0 +1,17 @@
+/*--------------------------------------------*/
+/*              DROPDOWN                      */
+/*--------------------------------------------*/
+.dropdown{
+    margin: 1rem 0rem;
+    width: 100%;
+    height: 3.3rem;
+    padding: 0 1rem;
+    border-radius: 2.5rem;
+    box-shadow: $shadow;
+    border: 1px solid #f4f4f4;
+    color: $primary-color-darker;
+
+    &:focus{
+        outline: 0;
+    }
+}

@@ -1,0 +1,142 @@
+/*--------------------------------------------*/
+/*              CHECKBOX PRIMARY              */
+/*--------------------------------------------*/
+.checkbox-container{
+    margin-top: 2rem;
+}
+
+.cbx {
+    margin: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.cbx span {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+}
+
+.cbx span:first-child {
+    position: relative;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 3px;
+    transform: scale(1);
+    vertical-align: middle;
+    border: 1px solid #9098A9;
+    transition: all .2s ease;
+}
+
+.cbx span:first-child svg {
+    position: absolute;
+    top: 0.3rem;
+    left: 0.2rem;
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1.6rem;
+    stroke-dashoffset: 1.6rem;
+    transition: all .3s ease;
+    transition-delay: .1s;
+    transform: translate3d(0, 0, 0);
+}
+
+.cbx span:first-child:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: $primary-color;
+    display: block;
+    transform: scale(0);
+    opacity: 1;
+    border-radius: 50%;
+}
+
+.cbx span:last-child {
+    padding-left: 0.8rem;
+    margin-top: 0.09rem;
+}
+
+.cbx:hover span:first-child {
+    border-color: $primary-color;
+}
+
+.inp-cbx:checked + .cbx span:first-child {
+    background: $primary-color;
+    border-color: $primary-color;
+    animation: wave .4s ease;
+}
+
+.inp-cbx:checked + .cbx span:first-child svg {
+    stroke-dashoffset: 0;
+}
+
+.inp-cbx:checked + .cbx span:first-child:before {
+    transform: scale(3.5);
+    opacity: 0;
+    transition: all .6s ease;
+}
+
+
+/*--------------------------------------------*/
+/*              CHECKBOX ROUNDED              */
+/*--------------------------------------------*/
+.checkmark {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill .4s ease-in-out .4s forwards, grow .3s ease-in-out .9s both;
+
+  &__warnning{
+    animation: fill-warnning .4s ease-in-out .4s forwards, grow .3s ease-in-out .9s both;
+    box-shadow: inset 0px 0px 0px #F89F38;
+    stroke: #F89F38;
+    
+  }
+  &__circle{
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #7ac142;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+
+    &--warnning{
+        stroke: #F89F38;
+    }
+  }
+  &__check{
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke-width: 5;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+    animation-delay: 1s;
+
+    &--warnning{
+        fill: #F89F38;
+    }
+    &.d-1{
+        animation-delay: 10.5s;
+    }
+    &.d-2{
+        animation-delay: 11s;
+    }
+    &.d-3{
+        animation-delay: 11.5s;
+    }
+  }
+}
+
+
+

@@ -1,0 +1,98 @@
+/*--------------------------------------------*/
+/*             DOCUMENT STATUS                */
+/*--------------------------------------------*/
+.c-document-status{
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    grid-template-rows: 1fr 2rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    transition: all .2s;
+    position: relative;
+    
+    &:hover{
+        cursor: pointer;
+        background: #f2f5fb;
+    }
+    &:hover &__title{
+        color: $primary-color;
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+
+    &__icon{
+        grid-column: 1/1;
+        grid-row: 1/-1;
+        color: $light-blue;
+        font-size: 2.2rem;
+        position: relative;
+        
+       &--file{
+        position: absolute;
+        top: 0.3rem;
+        font-size: 3rem;
+       }
+
+       &--state{
+            position: absolute;
+            top: 1.5rem;
+            left: 0.8rem;
+            font-size: 2rem;
+            border: 0.2rem solid white;
+            border-radius: 50%;
+            background: white;
+            color: $primary-color;
+       }
+
+       &--qr{
+        color: $primary-color;
+        position: relative;
+        background: white;
+        border-radius: 0.2rem;
+        font-size: 1.5rem;
+        border: 0.2rem solid white;
+        box-shadow: 0px 3px 6px #0000002e;
+        top: -1rem;
+        left: -1rem;
+       }   
+    }
+
+    &__title{
+        grid-column: 2/2;
+        font-size: 1.3rem;
+        color: $primary-color-darker;
+        margin-bottom: 0.5rem;
+    }
+
+    &__badge{
+        background: #b0b0b0;
+        color: white;
+        padding: 0.2em 0.5em;
+        border-radius: 1.2em;
+        font-family: sans-serif;
+        margin-left: 1rem;
+    }
+
+    &__state{
+        grid-column: 2/2;
+        font-size: 1.1rem;
+    }
+    
+    /* -------------   STATES  ------------  */
+
+    &.is-indexed .c-document-status__icon--state,
+    &.is-indexed .c-document-status__state{
+        color: $success-color;
+    }
+
+    &.is-pending .c-document-status__state{
+        color: $pending-color;
+    }
+
+    &.is-incomplete .c-document-status__state{
+        color: $incomplete-color;
+    }
+   
+}

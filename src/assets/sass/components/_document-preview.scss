@@ -1,0 +1,70 @@
+/*--------------------------------------------*/
+/*               WORKSPACE                    */
+/*--------------------------------------------*/
+
+.l-document-workspace{
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.l-document-preview{
+    flex: 0 1 30rem;
+    background: $secondary-color;
+    border-right: 1px solid #ededed;
+    padding: 2rem;
+    z-index: 0;
+    height: 100%;
+
+    &__content{
+        height: 78vh;
+        overflow-y: scroll;
+        padding-right: 1rem;
+        border-bottom: 1px solid #d3dbe9;
+        margin-right: -1rem;
+        padding-bottom: 1rem;
+
+        &--search{
+            height: initial;
+            overflow-y: initial;
+            border-bottom: none;
+
+        }
+    }
+
+    & .header-search{
+        display: initial;
+    }
+}
+
+
+.l-document-view{
+    display: flex;
+    flex: 1 20 auto;
+    box-shadow: 3px 6px 6px 0px #7272721f;
+
+    &__pdftron{
+        flex: 1 1 auto;
+        background: white;
+        display: flex;
+        justify-content: center;
+
+        &--image{
+            height: auto;
+            overflow-y: scroll;
+            background: #f5f5f5;
+            width: 0;
+
+                & img{
+                    width: 100%;
+
+                }
+            }
+    }
+
+    &__form{
+        flex: 0 1 40rem;
+        background: white;
+        box-shadow: -1px 3px 10px #00000012;
+        z-index: 3;
+    }  
+}
