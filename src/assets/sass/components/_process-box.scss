@@ -1,42 +1,43 @@
 /*--------------------------------------------*/
+
+
 /*              DOCUMENT BOX                  */
+
+
 /*--------------------------------------------*/
-.c-process-box{
+
+.c-process-box {
     display: inline-block;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: $shadow;
     width: 100%;
     position: relative;
-
-    &__title{
+    &__title {
         background: $secondary-color;
         color: $primary-color-darker;
         font-weight: 600;
         font-size: 1.3rem;
         padding: 2rem 2rem 1rem 7rem;
     }
-    &__name{
+    &__name {
         background: white;
         padding: 1rem;
         color: $primary-color;
         font-size: 1.1rem;
         padding: 1rem 2rem 2rem 7rem;
-
-        & .action{
+        & .action {
             float: right;
         }
     }
-
-    &__icon{
+    &__icon {
         position: absolute;
         font-size: 3rem;
         color: $primary-color;
         top: 2.7rem;
         left: 1.7rem;
         z-index: 1;
-
-        &::before{
+        &::before {
             content: "";
             width: 4rem;
             height: 4rem;
@@ -48,8 +49,7 @@
             border: 0.5rem solid $secondary-color;
             z-index: -1;
         }
-
-        &.is-complete{
+        &.is-complete {
             color: $success-color;
         }
     }
