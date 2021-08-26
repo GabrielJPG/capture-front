@@ -2,11 +2,12 @@
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ApplicationContext } from "../contexts/App.Context";
-import profile from '../assets/img/profile.png';
-import { IAuth } from "./interfaces/IAuth";
+import { IAuth, IAuthState } from "./interfaces/IAuth";
 import { useLocalStorage } from "./localstorage-hook";
-import { useAppProxy, useAppSetting } from "./db-hook";
-import { useNotify } from "./Notification-hook";
+import { useAppSetting } from "./useAppSetting-hook";
+import { useAppProxy } from "./useAppProxy-hook";
+import { useState } from "react";
+import { useEffect } from "react";
 
 /**
  * Hook for auth
@@ -24,25 +25,16 @@ export const useProvideAuth = (): IAuth => {
             // eslint-disable-next-line react-hooks/rules-of-hooks
             const proxy = useAppProxy('fluency', settings.settings);
             proxy.login(user, password)
-                .then(res => {
-                    if (res.status === 200) {
-                        return res.json();
-                    }
-                    //throw new Error(res.statusText);
-                    return Promise.reject(res.statusText);
+                .then(response => {
+                    return response.ok && response.json ? response.json() : {};
                 })
-                .then(res => {
+                .then((res: any) => {
                     context.setSession(res);
                     localSession.setValue(res);
                     context.setIsAuth(true);
                     sessionAuth.setValue(true);
                     resolve();
                 })
-            // .catch((err) => {
-            //     Promise.reject(err);
-            //     //notify.show('Invalid login')
-            //     //throw new Error('LoginNotFound');
-            // });
         });
     });
     const logout = () => new Promise<void>((resolve) => {

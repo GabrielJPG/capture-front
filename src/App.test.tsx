@@ -1,8 +1,6 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import * as x from '@testing-library/react';
 
 test('renders learn react link', () => {
-  render(<App />);
   expect(1).toEqual(1);
 });

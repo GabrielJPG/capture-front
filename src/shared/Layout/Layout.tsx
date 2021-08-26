@@ -6,7 +6,8 @@ import { MenuSection } from '../Menu/MenuSection';
 import { useProvideAuth } from '../../hooks/Auth-hooks';
 import { Link } from 'react-router-dom';
 import { AppLogo } from '../logo/app-logo';
-;
+import ProfilePicture from '../../assets/img/profile.png'
+    ;
 
 
 export type LayoutProps = {
@@ -31,7 +32,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
             <header className="header">
                 {props.hidePanel && <AppLogo />}
                 <div className="c-account">
-                    <img src={session?.photoProfile} alt="x" className="c-account__image" />
+                    <img src={session?.photoProfile ? session.photoProfile : ProfilePicture} alt="x" className="c-account__image" />
                     <nav className="c-account__logout">
                         <div className="c-account__name">{session?.fullName}</div>
                         <ul>

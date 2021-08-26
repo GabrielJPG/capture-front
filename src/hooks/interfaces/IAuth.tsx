@@ -30,11 +30,19 @@ export interface IAuth {
      * @type {(() => Promise<void>)}
      * @memberof IAuth
      */
-    login: (user: string, password: string) => Promise<void>;
+    login: (user: string, password: string) => Promise<any>;
     /**
      * Represents function to handle authentication [logout].
      *
      * @memberof IAuth
      */
+    logout: () => Promise<void>;
+}
+
+
+export interface IAuthState {
+    isAuth: boolean;
+    session: Session | null;
+    login: (user: string, password: string) => any,
     logout: () => Promise<void>;
 }

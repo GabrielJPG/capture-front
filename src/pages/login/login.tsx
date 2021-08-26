@@ -1,21 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { Footer } from './components/Footer';
 import { Form } from './components/Form';
 import { LanguageSelector } from './components/LanguageSelector';
 import { LoginHeader } from './components/LoginHeader';
 import { useHistory } from 'react-router-dom';
-import { useProvideAuth } from '../../hooks/Auth-hooks';
-import { FrontCaptureSettings, useAppSetting } from '../../hooks/db-hook';
-import { useNotify } from '../../hooks';
+import { useAppSetting, useNotify, useProvideAuth, IFrontCaptureSettings } from '../../hooks';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export const Login: React.FC = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [credentials, setCredentials] = React.useState({})
     const notify = useNotify('error')
     const history = useHistory();
     const auth = useProvideAuth();
     const db = useAppSetting();
-    const u_settings: FrontCaptureSettings = {
+    const [notification, setNotification] = useState(false);
+    const u_settings: IFrontCaptureSettings = {
         type: 'fluency',
         settings: {
             siteUrl: 'http://18.218.98.135/site',
@@ -26,16 +27,18 @@ export const Login: React.FC = () => {
             useLoggedUseCredentials: false,
         }
     }
+
     db.updateSettings(u_settings).then();
     const applyCredentials = (credentials: any) => {
         setCredentials(credentials)
         auth.login(credentials.username, credentials.password)
-            .then(() => {
-                history.push("/app");
-            })
-            .catch((error) => {
-                notify.show(error)
-                alert("Login failed");
+            .then((t) => {
+                ;
+                if (JSON.stringify(t) !== '{}' && t !== undefined) {
+                    history.push("/app");
+                    return;
+                }
+                setNotification(true);
             })
     }
 
