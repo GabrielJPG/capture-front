@@ -17,10 +17,12 @@ export const ProgressBar: React.FC<{ cardInfo: CardInfo; }> = (props) => {
             .replace('{required}', required.toString());
     };
 
-    return <div className="process-count" data-tip={buildToolTips(cardInfo.currentDocumentInProcess, cardInfo.processDocumentRequirement)} data-html={true} data-for='count'>
+    return <div className="c-process-count" data-tip={buildToolTips(cardInfo.currentDocumentInProcess, cardInfo.processDocumentRequirement)} data-html={true} data-for='count'>
         <ReactTooltip id="count" place="top" type="dark" effect="solid" />
         <CircularProgressbar
             value={cardInfo.currentDocumentInProcess} maxValue={cardInfo.processDocumentRequirement}
-            text={`${cardInfo.currentDocumentInProcess}/${cardInfo.processDocumentRequirement}`} />
+            text={`${cardInfo.currentDocumentInProcess}/${cardInfo.processDocumentRequirement}`} 
+            
+            />
     </div>
 };
