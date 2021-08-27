@@ -9,38 +9,25 @@ import { IProDoctivityProxy } from "./interfaces/ProDoctivityProxy";
  * @returns The ProDoctivityProxy instance
 */
 export const useProDoctivityProxy = (conn: FluencyConnection): IProDoctivityProxy => {
-
-    const server = conn.siteUrl
-    const resourceLogin = '/api/v1/users';
-    const apiKey = conn.apiKey;;
+    const Coordinator = conn.coordinatorUrl;
+    const resourceLogin = '/api/v1/prodoctivityapi/users/profile?includeDocumentTypeAccessList=true';
+    const apiKey = conn.apiKey;
     const apiKeyName = conn.apiKeyName;
 
-    const login = (username: string, password: string): Promise<any> => {
+    const login = async (username: string, password: string): Promise<any> => {
         const completeUsername = username + '@prodoctivity';
-        return fetch(server + resourceLogin, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Basic ' + btoa(completeUsername + ':' + password),
-                [apiKeyName]: apiKey
-            }
-        })
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const login2 = (username: string, password: string): Promise<any> => {
-        const serverUrl = 'http://18.218.98.135:8095';
-        const codec = btoa(`${username + '@prodoctivity'}:${password}`);
-        const url = new URL(serverUrl + '/api/accounts/authentication');
-        return fetch(url.toString(), {
-            method: 'POST',
+        const authorization = 'Basic ' + btoa(completeUsername + ':' + password)
+        const completeResourceLogin = Coordinator + resourceLogin;
+        return fetch(completeResourceLogin, {
+            method: 'GET',
             mode: 'cors',
-            headers: {
+            headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': `Basic ${codec}`
-            }
-        });
+                'Authorization': authorization,
+                'Access-Control-Request-Method': 'GET/POST/OPTIONS',
+                [apiKeyName]: apiKey
+            })
+        })
     }
     return {
         login,

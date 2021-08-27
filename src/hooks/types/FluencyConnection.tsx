@@ -13,10 +13,16 @@ export type FluencyConnection = {
      */
     siteUrl: string;
     /**
-     * ProDoctivity server API key.
+     * Coordinator site URL.
      *
      * @type {string}
      */
+    coordinatorUrl: string;
+    /**
+    * ProDoctivity server API key.
+    *
+    * @type {string}
+    */
     apiKey: string;
     /**
      * ProDoctivity server API key name.

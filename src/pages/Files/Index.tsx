@@ -67,21 +67,21 @@ export const FilesPage: React.FC = (props) => {
     const loadingContent = () => {
         return (<div className="process-workspace">
             <div className="preloader-dots">
-            <Loader
-                type='ThreeDots'
-                color="#0f44a0"
-                height={100}
-                width={100}
-                visible={loading}
-            />
+                <Loader
+                    type='ThreeDots'
+                    color="#0f44a0"
+                    height={100}
+                    width={100}
+                    visible={loading}
+                />
             </div>
-            
+
         </div>)
     }
 
     const notContentSelected = () => {
         return (<div className="process-workspace">
-            <iframe src="http://demo.prodoctivity.info/anim/SelectProcess.html" frameBorder="0" width="100%" height="100%"></iframe>
+            <iframe title="emptyPage" src="http://demo.prodoctivity.info/anim/SelectProcess.html" frameBorder="0" width="100%" height="100%"></iframe>
         </div>)
     }
 

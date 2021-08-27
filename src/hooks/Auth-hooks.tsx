@@ -2,12 +2,10 @@
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ApplicationContext } from "../contexts/App.Context";
-import { IAuth, IAuthState } from "./interfaces/IAuth";
+import { IAuth } from "./interfaces/IAuth";
 import { useLocalStorage } from "./localstorage-hook";
 import { useAppSetting } from "./useAppSetting-hook";
 import { useAppProxy } from "./useAppProxy-hook";
-import { useState } from "react";
-import { useEffect } from "react";
 
 /**
  * Hook for auth

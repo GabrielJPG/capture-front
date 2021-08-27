@@ -1,28 +1,32 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { Footer } from './components/Footer';
 import { Form } from './components/Form';
+import {
+    IFrontCaptureSettings,
+    useAppSetting,
+    useProvideAuth
+} from '../../hooks';
 import { LanguageSelector } from './components/LanguageSelector';
 import { LoginHeader } from './components/LoginHeader';
 import { useHistory } from 'react-router-dom';
-import { useAppSetting, useNotify, useProvideAuth, IFrontCaptureSettings } from '../../hooks';
 import { useState } from 'react';
-import { useEffect } from 'react';
+
 
 export const Login: React.FC = () => {
-    const [credentials, setCredentials] = React.useState({})
-    const notify = useNotify('error')
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [credentials, setCredentials] = useState({})
+    const [notification, setNotification] = useState(false)
     const history = useHistory();
     const auth = useProvideAuth();
     const db = useAppSetting();
-    const [notification, setNotification] = useState(false);
     const u_settings: IFrontCaptureSettings = {
         type: 'fluency',
         settings: {
-            siteUrl: 'http://18.218.98.135/site',
+            siteUrl: 'http://localhost:47726',
+            coordinatorUrl: 'http://localhost:4000',
             username: 'manager',
             password: 'password',
-            apiKey: 'd8092a8b-15a6-4f8e-87de-c582aa6445f9',
+            apiKey: 'a3001bd6-6b95-4e8b-84d7-8a03b9873a86',
             apiKeyName: 'x-api-key',
             useLoggedUseCredentials: false,
         }
@@ -34,7 +38,7 @@ export const Login: React.FC = () => {
         auth.login(credentials.username, credentials.password)
             .then((t) => {
                 ;
-                if (JSON.stringify(t) !== '{}' && t !== undefined) {
+                if (JSON.stringify(t) !== '{}') {
                     history.push("/app");
                     return;
                 }
@@ -45,6 +49,7 @@ export const Login: React.FC = () => {
     return <div>
         <section className="section-login">
             <div className="login">
+                <div>{notification ? 'CredentialsError' : ''}</div>
                 <div className="login__image" />
                 <div className="login__content">
                     <LoginHeader />
