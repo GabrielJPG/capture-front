@@ -9,13 +9,15 @@ import { useHistory } from 'react-router-dom';
 
 
 export const Login: React.FC = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [credentials, setCredentials] = useState({})
+    const [credentials, setCredentials] = useState({
+        username: '',
+        password: '',
+    })
     const { translate } = useContext(ApplicationContext)
     const history = useHistory();
     const auth = useProvideAuth();
     const db = useAppSetting();
-    const u_settings: IFrontCaptureSettings = {
+    const app_settings: IFrontCaptureSettings = {
         type: 'fluency',
         settings: {
             siteUrl: 'http://localhost:47726',
@@ -28,25 +30,25 @@ export const Login: React.FC = () => {
         }
     }
 
-    db.updateSettings(u_settings).then();
+    db.updateSettings(app_settings).then();
     const applyCredentials = (credentials: any) => {
         setCredentials(credentials)
         auth.login(credentials.username, credentials.password)
-            .then((t) => {
+            .then(() => {
                 history.push("/app");
             })
     }
-    console.log(auth.errorMessage)
 
     return <div>
         <section className="section-login">
+            {/* La linea debajo es para el error del las credenciales */}
             <div>{auth.errorInLogin && translate('InvalidCredentialsError')}</div>
             <div className="login">
                 <div className="login__image" />
                 <div className="login__content">
                     <LoginHeader />
                     <LanguageSelector />
-                    <Form emitCredential={(form) => applyCredentials(form)} />
+                    <Form defaultCredential={credentials} emitCredential={(form) => applyCredentials(form)} />
                 </div>
             </div>
             <Footer />

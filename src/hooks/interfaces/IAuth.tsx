@@ -37,8 +37,18 @@ export interface IAuth {
      * @memberof IAuth
      */
     logout: () => Promise<void>;
-
+    /**
+     * Represents if currents trying to login with currents credentials is valid.
+     *
+     * @type {boolean}
+     * @memberof IAuth
+     */
     errorInLogin: boolean;
-
+    /**
+     * Display error message if login is invalid.
+     *
+     * @type {string}
+     * @memberof IAuth
+     */
     errorMessage: string;
 }

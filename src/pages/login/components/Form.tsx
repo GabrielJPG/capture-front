@@ -3,16 +3,51 @@ import { ApplicationContext } from "../../../contexts/App.Context";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
+/**
+ *  Represensts the login form
+ * 
+*/
 export type Credentials = {
+    /**
+     * The username
+     *
+     * @type {string}
+     */
     username: string;
+    /**
+     * The password
+     *
+     * @type {string}
+     */
     password: string;
 }
 
-export const Form: React.FC<{ emitCredential: (form: Credentials) => void }> = (props) => {
+/**
+ * Represents the properties of the login form
+*/
+export type IForm = {
+    /**
+     * callback function for submitting the form data
+     *
+     * @type {(credentials: Credentials) => void}
+     * @memberof IForm
+     * @param {Credentials} credentials
+     * @returns {void}
+     */
+    emitCredential: (form: Credentials) => void;
+    /**
+     * default credentials for login
+     *
+     * @type {Credentials}
+     */
+    defaultCredential: Credentials;
+}
+
+export const Form: React.FC<IForm> = (props) => {
 
     const { translate } = useContext(ApplicationContext)
-    const [userName, setUserName] = useState('')
-    const [password, setPassword] = useState('')
+    const [userName, setUserName] = useState(props.defaultCredential.username)
+    const [password, setPassword] = useState(props.defaultCredential.password)
 
     const buildCredentials = () => {
         return {
@@ -31,7 +66,7 @@ export const Form: React.FC<{ emitCredential: (form: Credentials) => void }> = (
 
         <div className="login__btn" onClick={() => props.emitCredential(buildCredentials())}>
             <span className="btn-login effect">{translate('Login')}
-            <FontAwesomeIcon icon={faAngleRight} />
+                <FontAwesomeIcon icon={faAngleRight} />
             </span>
         </div>
     </div>;
