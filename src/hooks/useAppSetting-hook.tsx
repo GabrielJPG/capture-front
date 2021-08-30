@@ -1,6 +1,5 @@
-import { EntityContext } from './db-hook';
 import { IAppDbSetting } from "./interfaces/IAppDbSetting";
-import { IFrontCaptureSettings } from "./interfaces/FrontCaptureSettings";
+import { SettingRepository } from '../database/Setting-table';
 
 /**
  * Hook to get the app settings from the local database
@@ -9,16 +8,9 @@ import { IFrontCaptureSettings } from "./interfaces/FrontCaptureSettings";
  * @returns IAppDbSetting
 */
 export const useAppSetting = (): IAppDbSetting => {
-    const db = new EntityContext();
-    const table = 'app-setting';
-    const get = async (): Promise<IFrontCaptureSettings> => {
-        return db.get(table, 'setting');
-    };
-    const put = async (setting: IFrontCaptureSettings) => {
-        return db.put(table, 'setting', setting);
-    };
+    let settings: SettingRepository = new SettingRepository();
     return {
-        getSettings: get,
-        updateSettings: put
+        getSettings: settings.getSetting,
+        updateSettings: settings.setSetting
     };
 };

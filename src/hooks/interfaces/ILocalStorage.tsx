@@ -20,6 +20,10 @@ export interface ILocalStorage<T> {
      * @memberof ILocalStorage
      */
     setValue(value: T): void;
-
+    /**
+     * destroy the local storage value on the specified key
+     *
+     * @memberof ILocalStorage
+     */
     destroy(): void;
 }

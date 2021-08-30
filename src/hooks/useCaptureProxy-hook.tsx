@@ -1,15 +1,15 @@
 import { FluencyConnection } from "./types/FluencyConnection";
-import { IProDoctivityProxy } from "./interfaces/ProDoctivityProxy";
+import { IProDoctivityApiProxy } from "./interfaces/ProDoctivityProxy";
 
 /**
  * Hook to get the ProDoctivityProxy instance
  *
- * @implements {IProDoctivityProxy}
+ * @implements {IProDoctivityApiProxy}
  * @param connection The connection to use
  * @returns The ProDoctivityProxy instance
 */
 
-export const useCaptureProxy = (conn: FluencyConnection): IProDoctivityProxy => {
+export const useCaptureProxy = (conn: FluencyConnection): IProDoctivityApiProxy => {
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const login2 = (username: string, password: string): Promise<any> => {

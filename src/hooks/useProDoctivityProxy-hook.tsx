@@ -1,14 +1,14 @@
 import { FluencyConnection } from "./types/FluencyConnection";
-import { IProDoctivityProxy } from "./interfaces/ProDoctivityProxy";
+import { IProDoctivityApiProxy } from "./interfaces/ProDoctivityProxy";
 
 /**
  * Hook to get the ProDoctivityProxy instance
  * 
- * @implements {IProDoctivityProxy}
+ * @implements {IProDoctivityApiProxy}
  * @param connection The connection to use
  * @returns The ProDoctivityProxy instance
 */
-export const useProDoctivityProxy = (conn: FluencyConnection): IProDoctivityProxy => {
+export const useProDoctivityProxy = (conn: FluencyConnection): IProDoctivityApiProxy => {
     const Coordinator = conn.coordinatorUrl;
     const resourceLogin = '/api/v1/prodoctivityapi/users/profile?includeDocumentTypeAccessList=true';
     const apiKey = conn.apiKey;

@@ -3,13 +3,13 @@
  * Represents ProDoctivity methods
  *
  * @export
- * @interface ProDoctivityProxy
+ * @interface IApiProxy
  */
-export interface IProDoctivityProxy {
+export interface IProDoctivityApiProxy {
     /**
      * Represents ProDoctivity methods for login with provide user name and password
      *
-     * @memberof ProDoctivityProxy
+     * @memberof IApiProxy
      * @param {string} userName
      * @param {string} password
      * @returns {Promise<any>}
