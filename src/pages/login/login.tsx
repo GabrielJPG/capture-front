@@ -1,5 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { ApplicationContext } from '../../contexts/App.Context';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+    faExclamation
+} from '@fortawesome/free-solid-svg-icons';
 import { Footer } from './components/Footer';
 import { Form } from './components/Form';
 import { IFrontCaptureSettings, useAppSetting, useProvideAuth } from '../../hooks';
@@ -42,7 +46,14 @@ export const Login: React.FC = () => {
     return <div>
         <section className="section-login">
             {/* La linea debajo es para el error del las credenciales */}
-            <div>{auth.errorInLogin && translate('InvalidCredentialsError')}</div>
+            <div className="login-alert animated slideInDown">
+                <div className="login-alert__icon">
+                    <FontAwesomeIcon icon={faExclamation} />
+                </div>
+                <div className="login-alert__content">
+                    {auth.errorInLogin && translate('InvalidCredentialsError')}
+                </div>
+            </div>
             <div className="login">
                 <div className="login__image" />
                 <div className="login__content">
