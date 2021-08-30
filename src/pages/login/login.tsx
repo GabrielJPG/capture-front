@@ -1,21 +1,17 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { ApplicationContext } from '../../contexts/App.Context';
 import { Footer } from './components/Footer';
 import { Form } from './components/Form';
-import {
-    IFrontCaptureSettings,
-    useAppSetting,
-    useProvideAuth
-} from '../../hooks';
+import { IFrontCaptureSettings, useAppSetting, useProvideAuth } from '../../hooks';
 import { LanguageSelector } from './components/LanguageSelector';
 import { LoginHeader } from './components/LoginHeader';
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
 
 
 export const Login: React.FC = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [credentials, setCredentials] = useState({})
-    const [notification, setNotification] = useState(false)
+    const { translate } = useContext(ApplicationContext)
     const history = useHistory();
     const auth = useProvideAuth();
     const db = useAppSetting();
@@ -37,19 +33,15 @@ export const Login: React.FC = () => {
         setCredentials(credentials)
         auth.login(credentials.username, credentials.password)
             .then((t) => {
-                ;
-                if (JSON.stringify(t) !== '{}') {
-                    history.push("/app");
-                    return;
-                }
-                setNotification(true);
+                history.push("/app");
             })
     }
+    console.log(auth.errorMessage)
 
     return <div>
         <section className="section-login">
+            <div>{auth.errorInLogin && translate('InvalidCredentialsError')}</div>
             <div className="login">
-                <div>{notification ? 'CredentialsError' : ''}</div>
                 <div className="login__image" />
                 <div className="login__content">
                     <LoginHeader />

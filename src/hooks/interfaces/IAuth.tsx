@@ -37,12 +37,8 @@ export interface IAuth {
      * @memberof IAuth
      */
     logout: () => Promise<void>;
-}
 
+    errorInLogin: boolean;
 
-export interface IAuthState {
-    isAuth: boolean;
-    session: Session | null;
-    login: (user: string, password: string) => any,
-    logout: () => Promise<void>;
+    errorMessage: string;
 }
