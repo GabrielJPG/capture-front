@@ -43,17 +43,21 @@ export const Login: React.FC = () => {
             })
     }
 
+    const errorSection = () => {
+        return <div className="login-alert animated slideInDown is-danger">
+            <div className="login-alert__icon">
+                <FontAwesomeIcon icon={faExclamation} />
+            </div>
+            <div className="login-alert__content">
+                {auth.errorInLogin && translate('InvalidCredentialsError')}
+            </div>
+        </div>
+    }
+
     return <div>
         <section className="section-login">
             {/* La linea debajo es para el error del las credenciales */}
-            <div className="login-alert animated slideInDown">
-                <div className="login-alert__icon">
-                    <FontAwesomeIcon icon={faExclamation} />
-                </div>
-                <div className="login-alert__content">
-                    {auth.errorInLogin && translate('InvalidCredentialsError')}
-                </div>
-            </div>
+            {auth.errorInLogin && errorSection()}
             <div className="login">
                 <div className="login__image" />
                 <div className="login__content">

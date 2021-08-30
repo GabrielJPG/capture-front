@@ -16,12 +16,12 @@ export const useProvideAuth = (): IAuth => {
     const context = useContext(ApplicationContext)
     const [failLogin, setFailLogin] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
-    const db = useAppSetting();
+    const tableSettings = useAppSetting();
     const history = useHistory();
     const localSession = useLocalStorage<any>('user-session', {});
     const sessionAuth = useLocalStorage<boolean>('session-auth', false);
     const login = async (username: string, password: string) => {
-        return db.getSettings().then(settings => {
+        return tableSettings.getSettings().then(settings => {
             // eslint-disable-next-line react-hooks/rules-of-hooks
             const proxy = useAppProxy('fluency', settings.settings);
             return proxy.login(username, password)

@@ -28,5 +28,6 @@
     "Username": "Usuario",
     "UserProfile": "Perfil de usuario",
     "YouNotLogged": "Debes de iniciar session para poder ver esta pagina.",
-    "CompleteDocuments": "Documentos completos"
+    "CompleteDocuments": "Documentos completos",
+    "InvalidCredentialsError": "Usuario o contraseña incorrectos"
 }

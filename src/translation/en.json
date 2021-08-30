@@ -28,5 +28,6 @@
     "Username": "Username",
     "UserProfile": "User Profile",
     "YouNotLogged": "You must be logged in to access this page.",
-    "CompleteDocuments": "Complete documents"
+    "CompleteDocuments": "Complete documents",
+    "InvalidCredentialsError": "Invalid credentials"
 }
