@@ -54,6 +54,39 @@
     }
 }
 
+.login-alert {
+    min-width: 40rem;
+    background: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 10rem;
+    display: flex;
+    overflow: hidden;
+    &__icon {
+        width: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0f44a0;
+        color: #ffffff;
+    }
+    &__content {
+        flex: 1;
+        padding: 1.5rem;
+        padding-left: 2rem;
+    }
+    &.is-danger {
+        & .login-alert__icon {
+            background: #d11f1fe8;
+        }
+    }
+    &.is-warning {
+        & .login-alert__icon {
+            background: #ea7025;
+        }
+    }
+}
+
 
 /*--------------------------------------------*/
 
